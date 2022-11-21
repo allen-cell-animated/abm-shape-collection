@@ -1,2 +1,5 @@
-# abm-shape-collection
-Collection of tasks for analyzing cell shapes
+[![Build Status](https://github.com/allen-cell-animated/abm-shape-collection/workflows/build/badge.svg)](https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Abuild)
+[![Codecov](https://img.shields.io/codecov/c/gh/allen-cell-animated/abm-shape-collection?token=FMO7XIX5KH)](https://codecov.io/gh/allen-cell-animated/abm-shape-collection)
+[![Lint Status](https://github.com/allen-cell-animated/abm-shape-collection/workflows/lint/badge.svg)](https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Alint)
+[![Documentation](https://github.com/allen-cell-animated/abm-shape-collection/workflows/documentation/badge.svg)](https://allen-cell-animated.github.io/abm-shape-collection/)
+[![Code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)

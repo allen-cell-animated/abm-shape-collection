@@ -1,0 +1,7 @@
+abm\_shape\_collection package
+==============================
+
+.. automodule:: abm_shape_collection
+   :members:
+   :undoc-members:
+   :show-inheritance:

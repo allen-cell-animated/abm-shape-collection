@@ -1,0 +1,16 @@
+abm\_shape\_collection.coefficient package
+==========================================
+
+.. automodule:: abm_shape_collection.coefficient
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   abm_shape_collection.coefficient.calculate_sh_coefficients
+   abm_shape_collection.coefficient.make_voxels_array

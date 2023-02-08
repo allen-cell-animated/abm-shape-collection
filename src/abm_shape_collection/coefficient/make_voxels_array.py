@@ -1,5 +1,5 @@
-from prefect import task
 import numpy as np
+from prefect import task
 
 
 @task

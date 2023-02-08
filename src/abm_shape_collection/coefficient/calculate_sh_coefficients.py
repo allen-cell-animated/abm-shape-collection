@@ -1,6 +1,6 @@
-from prefect import task
 import numpy as np
 from aicsshparam import shparam, shtools
+from prefect import task
 
 
 @task

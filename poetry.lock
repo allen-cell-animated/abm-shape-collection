@@ -1854,6 +1854,22 @@ slack = ["slack-sdk"]
 telegram = ["requests"]
 
 [[package]]
+name = "trimesh"
+version = "3.18.3"
+description = "Import, export, process, analyze and view triangular meshes."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numpy = "*"
+
+[package.extras]
+all = ["chardet", "colorlog", "glooey", "jsonschema", "lxml", "mapbox-earcut", "meshio", "msgpack", "networkx", "pillow", "psutil", "pycollada", "pyglet (<2)", "python-fcl", "requests", "rtree", "scikit-image", "scipy", "setuptools", "shapely", "svg.path", "sympy", "xatlas", "xxhash"]
+easy = ["chardet", "colorlog", "jsonschema", "lxml", "mapbox-earcut", "msgpack", "networkx", "pillow", "pycollada", "requests", "rtree", "scipy", "setuptools", "shapely", "svg.path", "sympy", "xxhash"]
+test = ["autopep8", "coveralls", "ezdxf", "flake8", "flake8-no-implicit-concat", "flake8-pyproject", "pyinstrument", "pytest", "pytest-cov"]
+
+[[package]]
 name = "typer"
 version = "0.6.1"
 description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
@@ -1925,7 +1941,7 @@ testing = ["coverage (>=6.2)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7
 
 [[package]]
 name = "vtk"
-version = "9.2.2"
+version = "9.2.5"
 description = "VTK is an open-source toolkit for 3D computer graphics, image processing, and visualization"
 category = "main"
 optional = false
@@ -1933,10 +1949,10 @@ python-versions = "*"
 
 [package.dependencies]
 matplotlib = ">=2.0.0"
-wslink = ">=1.0.4"
 
 [package.extras]
 numpy = ["numpy (>=1.9)"]
+web = ["wslink (>=1.0.4)"]
 
 [[package]]
 name = "websocket-client"
@@ -1958,20 +1974,6 @@ description = "Module for decorators, wrappers and monkey patching."
 category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-
-[[package]]
-name = "wslink"
-version = "1.9.1"
-description = "Python/JavaScript library for communicating over WebSocket"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-aiohttp = "<4"
-
-[package.extras]
-ssl = ["cryptography"]
 
 [[package]]
 name = "xarray"
@@ -2021,7 +2023,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "44f27ef25f2bf66642220fb2ead492ac9cc3519bbf254c75d80afcb611fd555e"
+content-hash = "25723a95a7bb78dae33b367d69acc5811618cafd2e8f2abe067aea0d622b0ac6"
 
 [metadata.files]
 aicsshparam = [
@@ -3729,6 +3731,10 @@ tqdm = [
     {file = "tqdm-4.64.1-py2.py3-none-any.whl", hash = "sha256:6fee160d6ffcd1b1c68c65f14c829c22832bc401726335ce92c52d395944a6a1"},
     {file = "tqdm-4.64.1.tar.gz", hash = "sha256:5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"},
 ]
+trimesh = [
+    {file = "trimesh-3.18.3-py3-none-any.whl", hash = "sha256:7427fe09a3591b0e9d5d5fc03afccce761c2a5e89508741543fc41f986ee15e5"},
+    {file = "trimesh-3.18.3.tar.gz", hash = "sha256:955a01041af3ca1ad2991d85334c68f1424108e4a1c1a60eac8a5e030427efa3"},
+]
 typer = [
     {file = "typer-0.6.1-py3-none-any.whl", hash = "sha256:54b19e5df18654070a82f8c2aa1da456a4ac16a2a83e6dcd9f170e291c56338e"},
     {file = "typer-0.6.1.tar.gz", hash = "sha256:2d5720a5e63f73eaf31edaa15f6ab87f35f0690f8ca233017d7d23d743a91d73"},
@@ -3750,23 +3756,27 @@ virtualenv = [
     {file = "virtualenv-20.16.5.tar.gz", hash = "sha256:227ea1b9994fdc5ea31977ba3383ef296d7472ea85be9d6732e42a91c04e80da"},
 ]
 vtk = [
-    {file = "vtk-9.2.2-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:7d144aa36514f68d5dd8a42db5f65adc5c0a4c1d90dd8e70f3e8ee672a9c6dfb"},
-    {file = "vtk-9.2.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:74b5361e9d3c66d5fd5ecee2a99aa108a176322f45782822da20b4c69a366859"},
-    {file = "vtk-9.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8d2d11eee60aa1f3089f0ec17f966c626eb4ddae3b99fe7637c2e9940738dd25"},
-    {file = "vtk-9.2.2-cp310-cp310-win_amd64.whl", hash = "sha256:80a72131a68e2cf7af96b57db324b1849cb6d4d485dded04c599dce2fd13ccae"},
-    {file = "vtk-9.2.2-cp36-cp36m-macosx_10_10_x86_64.whl", hash = "sha256:22082699b6e7c9d9048b34929ab3635574b68bb721985efde23d5c98532647b1"},
-    {file = "vtk-9.2.2-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f9d7400ce3cb1a22d9c4110c10388a6bbdaa2fa0c603b9da925e3d39a51dc0c0"},
-    {file = "vtk-9.2.2-cp36-cp36m-win_amd64.whl", hash = "sha256:486a3f33085932d5e97ad0b44c676c993b4a571172f910cb96abd77a1ff33c84"},
-    {file = "vtk-9.2.2-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:621e2ab68ad6c411f8479d79bf240eac304607d56b6de3b5d4767bd4c4104686"},
-    {file = "vtk-9.2.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:61148bfc384d7b1faa2ae64c5bc2011fcd53046884efcb44fb65fd0aae9c78fb"},
-    {file = "vtk-9.2.2-cp37-cp37m-win_amd64.whl", hash = "sha256:e4061240ae41a1e6326b6e15e6225a05d99ed258af5f5c98dce994a9f46e5384"},
-    {file = "vtk-9.2.2-cp38-cp38-macosx_10_10_x86_64.whl", hash = "sha256:4eab0a9000e9c5de8ff2bc02aee0886bf8c49a61a5050eae59d661d25c1adb8e"},
-    {file = "vtk-9.2.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:46111c19c4fa4410550c860f90fcba823ea5b99864d3fde34c70bbcc8744d024"},
-    {file = "vtk-9.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:f4657dabb56e7c207bedad036ef7d15de4cffd3b955b62ad5cd88410ede871e5"},
-    {file = "vtk-9.2.2-cp39-cp39-macosx_10_10_x86_64.whl", hash = "sha256:a15f87583525e3df94ab2920946fc4aa7ace93167940b881aebfe1755a569818"},
-    {file = "vtk-9.2.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:0cc964a9f55764bd99b37356c6f8d986c2a232539479c8b96d8a95b55fd076ca"},
-    {file = "vtk-9.2.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:21896c72040b25cd2c1934e8b413663b156392ddf9c158014b35f5496da776c3"},
-    {file = "vtk-9.2.2-cp39-cp39-win_amd64.whl", hash = "sha256:f1fc1a5da51fc3d9cd668fe6e06f5f8b57c77fefa5369fac3551083d83a1b4f5"},
+    {file = "vtk-9.2.5-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:3915fb5f18dc584542ae5cdf1e714c0674a9203b4811111200bd274332613907"},
+    {file = "vtk-9.2.5-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:e9c1fd142da329eb644f0f94be6c0161600a20d75b324ac050c62e63614c710a"},
+    {file = "vtk-9.2.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:51935533a7588f8416de814ca771f97921616012d33b9f4738bf95c909d282e9"},
+    {file = "vtk-9.2.5-cp310-cp310-win_amd64.whl", hash = "sha256:9a52064278f65d2b8b19946f9a642de48725525dbb5acd06bbcea1dd827526a3"},
+    {file = "vtk-9.2.5-cp311-cp311-macosx_10_10_x86_64.whl", hash = "sha256:18bb1957c212d444da3e77a2c344f1239f935b92487595fb3e1fd1a704c65d85"},
+    {file = "vtk-9.2.5-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:1c01c653eb6d924b8a6c3c2e6ebbca18acdf0d46e03fb72c3fb16880101e5fc1"},
+    {file = "vtk-9.2.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1fe655edbce73dc91ef1ea9aa7f5cf778e499506a459d2da383b466d31aabb66"},
+    {file = "vtk-9.2.5-cp311-cp311-win_amd64.whl", hash = "sha256:3a1d19353011deef7e35f3d006fdb448a60b494615005eca90ca80c887358925"},
+    {file = "vtk-9.2.5-cp36-cp36m-macosx_10_10_x86_64.whl", hash = "sha256:d8cc4e522954789dcc01e84acb17e504feaf4a91a241857d17957657c4aade73"},
+    {file = "vtk-9.2.5-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:98ddedefd9d35434f2a2155af2c4e4b5cf5c91a4ac78e22cdb43092bba05d349"},
+    {file = "vtk-9.2.5-cp36-cp36m-win_amd64.whl", hash = "sha256:f226aeffba53b3a1a294061664feafd1185c400e7740197340e67b8bf215afd9"},
+    {file = "vtk-9.2.5-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:459438cb313ff1ffb276b84c7d9a7da17a309b3d9cc3b5c6dd722cbc80fcfa74"},
+    {file = "vtk-9.2.5-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e8c93cdd320d33f5c9bd28d2feee42db682bf51ecf210eea84efd7b3cfd88c2a"},
+    {file = "vtk-9.2.5-cp37-cp37m-win_amd64.whl", hash = "sha256:5dea24ef072a40921a0d7b2dd6f53baab416df6811d2b8a306a501eb95a4f9a4"},
+    {file = "vtk-9.2.5-cp38-cp38-macosx_10_10_x86_64.whl", hash = "sha256:a59a758f99b172867ba6663680598de5bf7daddb5cd84e71e47b0165eb41deb2"},
+    {file = "vtk-9.2.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0b5a7236ef712c2d829c66985a8f4eff7bcc781af3c141ecaa247eb8c6ec9217"},
+    {file = "vtk-9.2.5-cp38-cp38-win_amd64.whl", hash = "sha256:494708e54a2176d88615763022a21be9cf51b092a6599ebeedbb3c18523e014c"},
+    {file = "vtk-9.2.5-cp39-cp39-macosx_10_10_x86_64.whl", hash = "sha256:af074f8d876c369a3378a62253ed25bb419a9b0400b59a8b05cf1683a405d812"},
+    {file = "vtk-9.2.5-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:6aae3fa1d0b1a7e60b30f84033b234202e8f26f01d4df7ca1cb6fff0d65c46c5"},
+    {file = "vtk-9.2.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bedadbf2f69b58b7da35fc65d55f038c6433054604d90c414b10f605cb08bba7"},
+    {file = "vtk-9.2.5-cp39-cp39-win_amd64.whl", hash = "sha256:4d115bd8ef4585a1e0da390dfc77d58a300c9279204b9cff4c9b5e4ee66fe261"},
 ]
 websocket-client = [
     {file = "websocket-client-1.4.1.tar.gz", hash = "sha256:f9611eb65c8241a67fb373bef040b3cf8ad377a9f6546a12b620b6511e8ea9ef"},
@@ -3837,10 +3847,6 @@ wrapt = [
     {file = "wrapt-1.14.1-cp39-cp39-win32.whl", hash = "sha256:dee0ce50c6a2dd9056c20db781e9c1cfd33e77d2d569f5d1d9321c641bb903d5"},
     {file = "wrapt-1.14.1-cp39-cp39-win_amd64.whl", hash = "sha256:dee60e1de1898bde3b238f18340eec6148986da0455d8ba7848d50470a7a32fb"},
     {file = "wrapt-1.14.1.tar.gz", hash = "sha256:380a85cf89e0e69b7cfbe2ea9f765f004ff419f34194018a6827ac0e3edfed4d"},
-]
-wslink = [
-    {file = "wslink-1.9.1-py3-none-any.whl", hash = "sha256:74d39acf3f6ca8631c470f35dd8e3e0f4520d642ad92d993524de94907663a6f"},
-    {file = "wslink-1.9.1.tar.gz", hash = "sha256:6d4f644ca05b6f6349f8830b666a9081988ccd23318b69fdad261b77e812f0f0"},
 ]
 xarray = [
     {file = "xarray-2022.11.0-py3-none-any.whl", hash = "sha256:228ed50ab3f1f7e2ba66670ded05f0bee46c69c4f902f346947b5723479af97f"},

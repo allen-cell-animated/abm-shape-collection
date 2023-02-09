@@ -1,0 +1,7 @@
+abm\_shape\_collection.extract\_shape\_modes module
+===================================================
+
+.. automodule:: abm_shape_collection.extract_shape_modes
+   :members:
+   :undoc-members:
+   :show-inheritance:

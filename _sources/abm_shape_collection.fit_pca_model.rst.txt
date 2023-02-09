@@ -1,0 +1,7 @@
+abm\_shape\_collection.fit\_pca\_model module
+=============================================
+
+.. automodule:: abm_shape_collection.fit_pca_model
+   :members:
+   :undoc-members:
+   :show-inheritance:

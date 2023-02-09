@@ -13,3 +13,16 @@ Subpackages
    :maxdepth: 4
 
    abm_shape_collection.coefficient
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   abm_shape_collection.calculate_shape_stats
+   abm_shape_collection.calculate_size_stats
+   abm_shape_collection.compile_shape_modes
+   abm_shape_collection.extract_shape_modes
+   abm_shape_collection.fit_pca_model
+   abm_shape_collection.merge_shape_modes

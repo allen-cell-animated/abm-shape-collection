@@ -16,7 +16,7 @@ def calculate_shape_stats(
 
     for component in range(components):
         ks_stats = get_ks_statistic(data_transform[:, component], ref_data_transform[:, component])
-        ks_stats.update({"FEATURE": f"PC_{component + 1}", "SUBSET": "all_ticks"})
+        ks_stats.update({"FEATURE": f"PC_{component + 1}", "TICK": np.nan})
         all_stats.append(ks_stats)
 
     for tick, tick_data in data.groupby("TICK"):
@@ -29,8 +29,7 @@ def calculate_shape_stats(
             tick_ks_stats.update(
                 {
                     "FEATURE": f"PC_{component + 1}",
-                    "SUBSET": f"tick_{tick}",
-                    "TIME": round(tick_data["time"].unique()[0], 2),
+                    "TICK": tick,
                 }
             )
             all_stats.append(tick_ks_stats)

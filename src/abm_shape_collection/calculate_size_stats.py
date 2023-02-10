@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from prefect import task
 
@@ -17,7 +18,7 @@ def calculate_size_stats(
             values = data[column_name].values
 
             ks_stats = get_ks_statistic(values, ref_values)
-            ks_stats.update({"FEATURE": column_name, "SUBSET": "all_ticks"})
+            ks_stats.update({"FEATURE": column_name, "TICK": np.nan})
             all_stats.append(ks_stats)
 
             for tick, tick_data in data.groupby("TICK"):
@@ -27,8 +28,7 @@ def calculate_size_stats(
                 tick_ks_stats.update(
                     {
                         "FEATURE": column_name,
-                        "SUBSET": f"tick_{tick}",
-                        "TIME": round(tick_data["time"].unique()[0], 2),
+                        "TICK": tick,
                     }
                 )
                 all_stats.append(tick_ks_stats)

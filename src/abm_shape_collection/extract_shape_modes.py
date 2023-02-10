@@ -9,8 +9,6 @@ from sklearn.decomposition import PCA
 from vtkmodules.vtkCommonDataModel import vtkPolyData
 from vtkmodules.vtkIOPLY import vtkPLYWriter
 
-# from abm_shape_collection.calculate_shape_statistics import apply_data_transform
-
 
 @task
 def extract_shape_modes(

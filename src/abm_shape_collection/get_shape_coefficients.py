@@ -4,7 +4,7 @@ from prefect import task
 
 
 @task
-def calculate_sh_coefficients(array: np.ndarray, reference: np.ndarray, lmax: int) -> dict:
+def get_shape_coefficients(array: np.ndarray, reference: np.ndarray, lmax: int) -> dict:
     _, angle = shtools.align_image_2d(image=reference)
     aligned_array = shtools.apply_image_alignment_2d(array, angle).squeeze()
 

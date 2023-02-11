@@ -6,14 +6,6 @@ abm\_shape\_collection package
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   abm_shape_collection.coefficient
-
 Submodules
 ----------
 
@@ -25,4 +17,6 @@ Submodules
    abm_shape_collection.compile_shape_modes
    abm_shape_collection.extract_shape_modes
    abm_shape_collection.fit_pca_model
+   abm_shape_collection.get_shape_coefficients
+   abm_shape_collection.make_voxels_array
    abm_shape_collection.merge_shape_modes

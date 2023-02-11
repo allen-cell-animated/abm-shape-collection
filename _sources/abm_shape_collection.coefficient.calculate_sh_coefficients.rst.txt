@@ -1,7 +1,0 @@
-abm\_shape\_collection.coefficient.calculate\_sh\_coefficients module
-=====================================================================
-
-.. automodule:: abm_shape_collection.coefficient.calculate_sh_coefficients
-   :members:
-   :undoc-members:
-   :show-inheritance:

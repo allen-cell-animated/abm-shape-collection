@@ -1,0 +1,7 @@
+abm\_shape\_collection.make\_voxels\_array module
+=================================================
+
+.. automodule:: abm_shape_collection.make_voxels_array
+   :members:
+   :undoc-members:
+   :show-inheritance:

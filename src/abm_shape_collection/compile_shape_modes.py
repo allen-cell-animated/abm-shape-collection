@@ -1,9 +1,6 @@
 import xml.etree.ElementTree as ET
 
-from prefect import task
 
-
-@task
 def compile_shape_modes(
     shape_modes: dict,
     views: list[str],

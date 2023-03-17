@@ -1,11 +1,9 @@
 import numpy as np
 import pandas as pd
-from prefect import task
 
 from abm_shape_collection.calculate_shape_stats import get_ks_statistic
 
 
-@task
 def calculate_size_stats(
     data: pd.DataFrame, ref_data: pd.DataFrame, regions: list[str]
 ) -> pd.DataFrame:

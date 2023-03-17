@@ -4,13 +4,11 @@ import numpy as np
 import pandas as pd
 import trimesh
 from aicsshparam import shtools
-from prefect import task
 from sklearn.decomposition import PCA
 from vtkmodules.vtkCommonDataModel import vtkPolyData
 from vtkmodules.vtkIOPLY import vtkPLYWriter
 
 
-@task
 def extract_shape_modes(
     pca: PCA, data: pd.DataFrame, components: int, regions: list[str], order: int, delta: float
 ) -> dict:

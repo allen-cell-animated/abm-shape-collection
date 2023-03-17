@@ -1,8 +1,14 @@
-from .calculate_shape_stats import calculate_shape_stats
-from .calculate_size_stats import calculate_size_stats
-from .compile_shape_modes import compile_shape_modes
-from .extract_shape_modes import extract_shape_modes
-from .fit_pca_model import fit_pca_model
-from .get_shape_coefficients import get_shape_coefficients
-from .make_voxels_array import make_voxels_array
-from .merge_shape_modes import merge_shape_modes
+import importlib
+import os
+import sys
+
+from prefect import task
+
+for module_file in os.listdir(os.path.dirname(__file__)):
+    if module_file == "__init__.py" or not module_file.endswith(".py"):
+        continue
+
+    module_name = module_file.replace(".py", "")
+
+    module = importlib.import_module(f".{module_name}", package=__name__)
+    setattr(sys.modules[__name__], module_name, task(getattr(module, module_name)))

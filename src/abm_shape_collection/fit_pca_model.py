@@ -1,9 +1,7 @@
 import numpy as np
-from prefect import task
 from sklearn.decomposition import PCA
 
 
-@task
 def fit_pca_model(features: np.ndarray, components: int, ordering: np.ndarray) -> PCA:
     # Fit data.
     pca = PCA(n_components=components)

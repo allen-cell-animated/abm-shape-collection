@@ -1,7 +1,5 @@
 import xml.etree.ElementTree as ET
 
-from prefect import task
-
 from abm_shape_collection.compile_shape_modes import (
     add_border,
     add_col_labels,
@@ -12,7 +10,6 @@ from abm_shape_collection.compile_shape_modes import (
 )
 
 
-@task
 def merge_shape_modes(
     shape_modes: dict,
     views: list[str],

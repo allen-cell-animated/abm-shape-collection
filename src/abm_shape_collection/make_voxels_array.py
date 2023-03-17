@@ -1,8 +1,6 @@
 import numpy as np
-from prefect import task
 
 
-@task
 def make_voxels_array(voxels: list[tuple[int, int, int]], scale: int = 1) -> np.ndarray:
     # Center voxels around (0,0,0).
     center_x, center_y, center_z = [round(x) for x in np.array(voxels).mean(axis=0)]

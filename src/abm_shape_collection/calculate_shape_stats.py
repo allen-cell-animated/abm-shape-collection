@@ -1,11 +1,9 @@
 import numpy as np
 import pandas as pd
-from prefect import task
 from scipy.stats import ks_2samp
 from sklearn.decomposition import PCA
 
 
-@task
 def calculate_shape_stats(
     pca: PCA, data: pd.DataFrame, ref_data: pd.DataFrame, components: int
 ) -> pd.DataFrame:

@@ -1,3 +1,12 @@
+# [v0.3.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.3.0) - 2023-03-18
+
+> Compare with [v0.2.3](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.2.3...v0.3.0)
+
+### Admin
+
+- Move prefect task decorator to init by [@jessicasyu](https://github.com/jessicasyu) in [#13](https://github.com/allen-cell-animated/abm-shape-collection/pull/13)
+- Add changelog and update actions by [@jessicasyu](https://github.com/jessicasyu) in [#14](https://github.com/allen-cell-animated/abm-shape-collection/pull/14)
+
 # [v0.2.3](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.2.3) - 2023-02-22
 
 > Compare with [v0.2.2](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.2.2...v0.2.3)

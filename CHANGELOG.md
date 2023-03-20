@@ -1,3 +1,11 @@
+# [v0.3.1](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.3.1) - 2023-03-20
+
+> Compare with [v0.3.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.3.0...v0.3.1)
+
+### Bug fixes
+
+- Fix init import to exclude all double underscore files by [@jessicasyu](https://github.com/jessicasyu) in [#16](https://github.com/allen-cell-animated/abm-shape-collection/pull/16)
+
 # [v0.3.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.3.0) - 2023-03-18
 
 > Compare with [v0.2.3](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.2.3...v0.3.0)

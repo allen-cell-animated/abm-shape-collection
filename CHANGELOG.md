@@ -1,3 +1,17 @@
+# [v0.4.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.4.0) - 2023-03-30
+
+> Compare with [v0.3.1](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.3.1...v0.4.0)
+
+### Features
+
+- Update calculate stats tasks with optional sampling by [@jessicasyu](https://github.com/jessicasyu) in [#21](https://github.com/allen-cell-animated/abm-shape-collection/pull/21)
+
+### Admin
+
+- Update adding task decorator to init imports by [@jessicasyu](https://github.com/jessicasyu) in [#18](https://github.com/allen-cell-animated/abm-shape-collection/pull/18)
+- Add task decorator to init imports by [@jessicasyu](https://github.com/jessicasyu) in [#19](https://github.com/allen-cell-animated/abm-shape-collection/pull/19)
+- Update pyproject.toml and dependencies by [@jessicasyu](https://github.com/jessicasyu) in [#20](https://github.com/allen-cell-animated/abm-shape-collection/pull/20)
+
 # [v0.3.1](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.3.1) - 2023-03-20
 
 > Compare with [v0.3.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.3.0...v0.3.1)

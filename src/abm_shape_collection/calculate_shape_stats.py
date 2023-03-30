@@ -18,19 +18,19 @@ def calculate_shape_stats(
     all_stats = []
 
     columns = list(ref_data.filter(like="shcoeffs").columns)
-    ref_values = pca.transform(ref_data[columns].values)
+    ref_data_transformed = pca.transform(ref_data[columns].values)
 
     for component in range(components):
-        stats = calculate_shape_stats_for_all(pca, data, ref_values, component, columns)
+        stats = calculate_shape_stats_for_all(pca, data, ref_data_transformed, component, columns)
 
         if include_ticks:
             stats = stats + calculate_shape_stats_for_ticks(
-                pca, data, ref_values, component, columns
+                pca, data, ref_data_transformed, component, columns
             )
 
         if include_samples:
             stats = stats + calculate_shape_stats_for_samples(
-                pca, data, ref_values, component, columns, sample_reps, sample_size
+                pca, data, ref_data_transformed, component, columns, sample_reps, sample_size
             )
 
         stats_df = pd.DataFrame(stats)

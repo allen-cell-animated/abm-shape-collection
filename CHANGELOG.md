@@ -1,3 +1,12 @@
+# [v0.5.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.5.0) - 2023-05-08
+
+> Compare with [v0.4.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.4.0...v0.5.0)
+
+### Features
+
+- Add get shape properties task by [@jessicasyu](https://github.com/jessicasyu) in [#23](https://github.com/allen-cell-animated/abm-shape-collection/pull/23)
+- Add get shape properties task to init by [@jessicasyu](https://github.com/jessicasyu) in [#24](https://github.com/allen-cell-animated/abm-shape-collection/pull/24)
+
 # [v0.4.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.4.0) - 2023-03-30
 
 > Compare with [v0.3.1](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.3.1...v0.4.0)

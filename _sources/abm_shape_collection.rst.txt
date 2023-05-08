@@ -18,5 +18,6 @@ Submodules
    abm_shape_collection.extract_shape_modes
    abm_shape_collection.fit_pca_model
    abm_shape_collection.get_shape_coefficients
+   abm_shape_collection.get_shape_properties
    abm_shape_collection.make_voxels_array
    abm_shape_collection.merge_shape_modes

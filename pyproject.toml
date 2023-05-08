@@ -59,6 +59,7 @@ module = [
     "aicsshparam.*",
     "pandas.*",
     "scipy.*",
+    "skimage.*",
     "sklearn.*",
     "trimesh.*",
     "vtkmodules.*",

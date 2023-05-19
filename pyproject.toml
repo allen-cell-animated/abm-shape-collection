@@ -62,7 +62,7 @@ module = [
     "skimage.*",
     "sklearn.*",
     "trimesh.*",
-    "vtkmodules.*",
+    "vtk.*",
 ]
 ignore_missing_imports = true
 

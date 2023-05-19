@@ -15,6 +15,9 @@ Submodules
    abm_shape_collection.calculate_shape_stats
    abm_shape_collection.calculate_size_stats
    abm_shape_collection.compile_shape_modes
+   abm_shape_collection.construct_mesh_from_array
+   abm_shape_collection.construct_mesh_from_coeffs
+   abm_shape_collection.construct_mesh_from_points
    abm_shape_collection.extract_shape_modes
    abm_shape_collection.fit_pca_model
    abm_shape_collection.get_shape_coefficients

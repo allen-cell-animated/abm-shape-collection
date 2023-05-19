@@ -1,0 +1,7 @@
+abm\_shape\_collection.construct\_mesh\_from\_array module
+==========================================================
+
+.. automodule:: abm_shape_collection.construct_mesh_from_array
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -3,10 +3,10 @@ import tempfile
 import numpy as np
 import pandas as pd
 import trimesh
-from aicsshparam import shtools
 from sklearn.decomposition import PCA
-from vtkmodules.vtkCommonDataModel import vtkPolyData
-from vtkmodules.vtkIOPLY import vtkPLYWriter
+from vtk import vtkPLYWriter, vtkPolyData
+
+from abm_shape_collection.construct_mesh_from_points import construct_mesh_from_points
 
 
 def extract_shape_modes(
@@ -48,27 +48,6 @@ def extract_shape_mode_slices(
     mesh = convert_vtk_to_trimesh(mesh)
     slices = get_mesh_slices(mesh)
     return slices
-
-
-def construct_mesh_from_points(
-    pca: PCA,
-    points: np.ndarray,
-    feature_names: list[str],
-    order: int,
-    prefix: str = "",
-    suffix: str = "",
-) -> vtkPolyData:
-    """Constructs mesh given PCA transformation points."""
-    coeffs = pd.Series(pca.inverse_transform(points), index=feature_names)
-    coeffs_map = np.zeros((2, order + 1, order + 1), dtype=np.float32)
-
-    for l in range(order + 1):
-        for m in range(order + 1):
-            coeffs_map[0, l, m] = coeffs[f"{prefix}shcoeffs_L{l}M{m}C{suffix}"]
-            coeffs_map[1, l, m] = coeffs[f"{prefix}shcoeffs_L{l}M{m}S{suffix}"]
-
-    mesh, _ = shtools.get_reconstruction_from_coeffs(coeffs_map)
-    return mesh
 
 
 def convert_vtk_to_trimesh(mesh: vtkPolyData) -> trimesh.Trimesh:

@@ -1,7 +1,0 @@
-abm\_shape\_collection.calculate\_shape\_stats module
-=====================================================
-
-.. automodule:: abm_shape_collection.calculate_shape_stats
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,0 +1,22 @@
+get\_shape\_properties
+======================
+
+.. automodule:: abm_shape_collection.get_shape_properties
+    :members:
+    :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   

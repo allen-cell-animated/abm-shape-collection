@@ -1,7 +1,0 @@
-abm\_shape\_collection.compile\_shape\_modes module
-===================================================
-
-.. automodule:: abm_shape_collection.compile_shape_modes
-   :members:
-   :undoc-members:
-   :show-inheritance:

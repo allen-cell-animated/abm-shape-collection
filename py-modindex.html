@@ -2,12 +2,10 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="abm_shape_collection" href="_summary/abm_shape_collection.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
 
-    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>ABM Shape Collection 0.5.0</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 --><title>Python Module Index - ABM Shape Collection 0.5.0</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -124,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand"><strong>ABM Shape Collection</strong> <br />0.5.0</div></a>
+      <a href="index.html"><div class="brand"><strong>ABM Shape Collection</strong> <br />0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -144,7 +142,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text"><strong>ABM Shape Collection</strong> <br />0.5.0</span>
@@ -200,8 +198,7 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -215,103 +212,105 @@
           </label>
         </div>
         <article role="main">
-          <div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><a class="reference external" href="https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Abuild"><img alt="Build Status" src="https://github.com/allen-cell-animated/abm-shape-collection/workflows/build/badge.svg" /></a>
-<a class="reference external" href="https://codecov.io/gh/allen-cell-animated/abm-shape-collection"><img alt="Codecov" src="https://img.shields.io/codecov/c/gh/allen-cell-animated/abm-shape-collection?token=FMO7XIX5KH" /></a>
-<a class="reference external" href="https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Alint"><img alt="Lint Status" src="https://github.com/allen-cell-animated/abm-shape-collection/workflows/lint/badge.svg" /></a>
-<a class="reference external" href="https://allen-cell-animated.github.io/abm-shape-collection/"><img alt="Documentation" src="https://github.com/allen-cell-animated/abm-shape-collection/workflows/documentation/badge.svg" /></a>
-<a class="reference external" href="https://github.com/psf/black"><img alt="Code style" src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a></p>
-<p>Collection of tasks for analyzing cell shapes.
-Designed to be used both in <a class="reference external" href="https://docs.prefect.io/latest/">Prefect</a> workflows and as modular, useful pieces of code.</p>
-<section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
-<p>The collection can be installed using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>abm-shape-collection
-</pre></div>
-</div>
-<p>We recommend using <a class="reference external" href="https://python-poetry.org/">Poetry</a> to manage and install dependencies.
-To install into your Poetry project, use:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>add<span class="w"> </span>abm-shape-collection
-</pre></div>
-</div>
+          
+<section class="domainindex-section">
+  <h1>Python Module Index</h1>
+  <div class="domainindex-jumpbox"><a href="#cap-a"><strong>a</strong></a></div>
 </section>
-<section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h1>
-<section id="prefect-workflows">
-<h2>Prefect workflows<a class="headerlink" href="#prefect-workflows" title="Permalink to this heading">#</a></h2>
-<p>All tasks in this collection are wrapped in a Prefect <code class="docutils literal notranslate"><span class="pre">&#64;task</span></code> decorator, and can be used directly in a Prefect <code class="docutils literal notranslate"><span class="pre">&#64;flow</span></code>.
-Running tasks within a <a class="reference external" href="https://docs.prefect.io/latest/">Prefect</a> flow enables you to take advantage of features such as automatically retrying failed tasks, monitoring workflow states, running tasks concurrently, deploying and scheduling flows, and more.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prefect</span> <span class="kn">import</span> <span class="n">flow</span>
-<span class="kn">from</span> <span class="nn">abm_shape_collection</span> <span class="kn">import</span> <span class="o">&lt;</span><span class="n">task_name</span><span class="o">&gt;</span>
-
-<span class="nd">@flow</span>
-<span class="k">def</span> <span class="nf">run_flow</span><span class="p">():</span>
-    <span class="o">&lt;</span><span class="n">task_name</span><span class="o">&gt;</span><span class="p">()</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">run_flow</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>See <a class="reference external" href="https://github.com/allen-cell-animated/cell-abm-pipeline">cell-abm-pipeline</a> for examples of using tasks from different collections to build a pipeline for simulating and analyzing agent-based model data.</p>
-</section>
-<section id="individual-tasks">
-<h2>Individual tasks<a class="headerlink" href="#individual-tasks" title="Permalink to this heading">#</a></h2>
-<p>Not all use cases require a full workflow.
-Tasks in this collection can be used without the Prefect <code class="docutils literal notranslate"><span class="pre">&#64;task</span></code> decorator by simply importing directly from the module:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abm_shape_collection.</span><span class="o">&lt;</span><span class="n">task_name</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="o">&lt;</span><span class="n">task_name</span><span class="o">&gt;</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="o">&lt;</span><span class="n">task_name</span><span class="o">&gt;</span><span class="p">()</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>or using the <code class="docutils literal notranslate"><span class="pre">.fn()</span></code> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abm_shape_collection</span> <span class="kn">import</span> <span class="o">&lt;</span><span class="n">task_name</span><span class="o">&gt;</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="o">&lt;</span><span class="n">task_name</span><span class="o">&gt;.</span><span class="n">fn</span><span class="p">()</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="module-reference">
-<h1>Module reference<a class="headerlink" href="#module-reference" title="Permalink to this heading">#</a></h1>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="_summary/abm_shape_collection.html#module-abm_shape_collection" title="abm_shape_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abm_shape_collection</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
+<table class="domainindex-table">
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-a">
+    <td></td><td><strong>a</strong></td><td></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+    <td>
+        <a href="_summary/abm_shape_collection.html#module-abm_shape_collection"><code class="xref">abm_shape_collection</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.calculate_shape_stats.html#module-abm_shape_collection.calculate_shape_stats"><code class="xref">abm_shape_collection.calculate_shape_stats</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.calculate_size_stats.html#module-abm_shape_collection.calculate_size_stats"><code class="xref">abm_shape_collection.calculate_size_stats</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.compile_shape_modes.html#module-abm_shape_collection.compile_shape_modes"><code class="xref">abm_shape_collection.compile_shape_modes</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.construct_mesh_from_array.html#module-abm_shape_collection.construct_mesh_from_array"><code class="xref">abm_shape_collection.construct_mesh_from_array</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.construct_mesh_from_coeffs.html#module-abm_shape_collection.construct_mesh_from_coeffs"><code class="xref">abm_shape_collection.construct_mesh_from_coeffs</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.construct_mesh_from_points.html#module-abm_shape_collection.construct_mesh_from_points"><code class="xref">abm_shape_collection.construct_mesh_from_points</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.extract_shape_modes.html#module-abm_shape_collection.extract_shape_modes"><code class="xref">abm_shape_collection.extract_shape_modes</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.fit_pca_model.html#module-abm_shape_collection.fit_pca_model"><code class="xref">abm_shape_collection.fit_pca_model</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.get_shape_coefficients.html#module-abm_shape_collection.get_shape_coefficients"><code class="xref">abm_shape_collection.get_shape_coefficients</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.get_shape_properties.html#module-abm_shape_collection.get_shape_properties"><code class="xref">abm_shape_collection.get_shape_properties</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.make_voxels_array.html#module-abm_shape_collection.make_voxels_array"><code class="xref">abm_shape_collection.make_voxels_array</code></a></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="_summary/abm_shape_collection.merge_shape_modes.html#module-abm_shape_collection.merge_shape_modes"><code class="xref">abm_shape_collection.merge_shape_modes</code></a></td><td>
+    <em></em></td>
+  </tr>
 </table>
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="_summary/abm_shape_collection.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">abm_shape_collection</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
+          
           
         </div>
         <div class="bottom-of-page">

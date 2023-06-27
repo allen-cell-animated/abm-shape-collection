@@ -1,7 +1,0 @@
-abm\_shape\_collection.get\_shape\_coefficients module
-======================================================
-
-.. automodule:: abm_shape_collection.get_shape_coefficients
-   :members:
-   :undoc-members:
-   :show-inheritance:

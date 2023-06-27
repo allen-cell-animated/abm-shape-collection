@@ -1,0 +1,22 @@
+construct\_mesh\_from\_coeffs
+=============================
+
+.. automodule:: abm_shape_collection.construct_mesh_from_coeffs
+    :members:
+    :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   

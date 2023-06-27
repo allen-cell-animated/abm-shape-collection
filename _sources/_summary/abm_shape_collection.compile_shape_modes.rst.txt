@@ -1,0 +1,22 @@
+compile\_shape\_modes
+=====================
+
+.. automodule:: abm_shape_collection.compile_shape_modes
+    :members:
+    :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   

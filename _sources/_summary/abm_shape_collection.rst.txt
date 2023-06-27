@@ -1,0 +1,46 @@
+﻿abm\_shape\_collection
+======================
+
+.. automodule:: abm_shape_collection
+    :members:
+    :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+
+.. currentmodule:: abm_shape_collection
+
+.. autosummary::
+   :toctree:
+   :template: custom_module.rst
+   :recursive:
+
+   calculate_shape_stats
+   calculate_size_stats
+   compile_shape_modes
+   construct_mesh_from_array
+   construct_mesh_from_coeffs
+   construct_mesh_from_points
+   extract_shape_modes
+   fit_pca_model
+   get_shape_coefficients
+   get_shape_properties
+   make_voxels_array
+   merge_shape_modes
+

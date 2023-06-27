@@ -1,0 +1,22 @@
+calculate\_size\_stats
+======================
+
+.. automodule:: abm_shape_collection.calculate_size_stats
+    :members:
+    :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   

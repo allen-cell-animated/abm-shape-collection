@@ -1,7 +1,0 @@
-abm\_shape\_collection.construct\_mesh\_from\_coeffs module
-===========================================================
-
-.. automodule:: abm_shape_collection.construct_mesh_from_coeffs
-   :members:
-   :undoc-members:
-   :show-inheritance:

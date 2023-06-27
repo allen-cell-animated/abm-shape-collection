@@ -1,0 +1,22 @@
+extract\_shape\_modes
+=====================
+
+.. automodule:: abm_shape_collection.extract_shape_modes
+    :members:
+    :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   

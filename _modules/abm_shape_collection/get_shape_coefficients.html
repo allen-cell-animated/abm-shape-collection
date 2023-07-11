@@ -222,9 +222,18 @@
     <span class="n">_</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="n">shtools</span><span class="o">.</span><span class="n">align_image_2d</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">reference</span><span class="p">)</span>
     <span class="n">aligned_array</span> <span class="o">=</span> <span class="n">shtools</span><span class="o">.</span><span class="n">apply_image_alignment_2d</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
 
-    <span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">_</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">shparam</span><span class="o">.</span><span class="n">get_shcoeffs</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">reconstructed_array</span><span class="p">),</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">downsampled_array</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">shparam</span><span class="o">.</span><span class="n">get_shcoeffs</span><span class="p">(</span>
         <span class="n">image</span><span class="o">=</span><span class="n">aligned_array</span><span class="p">,</span> <span class="n">lmax</span><span class="o">=</span><span class="n">lmax</span><span class="p">,</span> <span class="n">compute_lcc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alignment_2d</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">)</span>
+
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">shtools</span><span class="o">.</span><span class="n">get_reconstruction_error</span><span class="p">(</span><span class="n">downsampled_array</span><span class="p">,</span> <span class="n">reconstructed_array</span><span class="p">)</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">aligned_array</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">coeffs</span><span class="p">[</span><span class="s2">&quot;angle&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">angle</span>
+    <span class="n">coeffs</span><span class="p">[</span><span class="s2">&quot;mse&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mse</span>
+    <span class="n">coeffs</span><span class="p">[</span><span class="s2">&quot;center_z&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">coeffs</span><span class="p">[</span><span class="s2">&quot;center_y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">coeffs</span><span class="p">[</span><span class="s2">&quot;center_x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">center</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">coeffs</span></div>
 </pre></div>

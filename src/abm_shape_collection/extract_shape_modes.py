@@ -52,14 +52,14 @@ def extract_shape_modes(
                     offset = None
                 else:
                     offset = (
-                        offsets[region]["x"][indices].mean(),
-                        offsets[region]["y"][indices].mean(),
-                        offsets[region]["z"][indices].mean(),
+                        offsets["x"][indices].mean(),
+                        offsets["y"][indices].mean(),
+                        offsets["z"][indices].mean(),
                     )
 
                 region_shape_modes.append(
                     {
-                        "component": component + 1,
+                        "mode": component + 1,
                         "point": point,
                         "paths": extract_mesh_projections(mesh, extents=False, offset=offset),
                     }
@@ -71,6 +71,9 @@ def extract_shape_modes(
 
 
 def calculate_region_offsets(data: pd.DataFrame, region: str) -> dict:
+    if region == "DEFAULT":
+        return {}
+
     x_deltas = data[f"CENTER_X.{region}"].values - data["CENTER_X"].values
     y_deltas = data[f"CENTER_Y.{region}"].values - data["CENTER_Y"].values
     z_deltas = data[f"CENTER_Z.{region}"].values - data["CENTER_Z"].values

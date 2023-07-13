@@ -61,7 +61,7 @@ def extract_shape_modes(
                     {
                         "mode": component + 1,
                         "point": point,
-                        "paths": extract_mesh_projections(mesh, extents=False, offset=offset),
+                        "projections": extract_mesh_projections(mesh, extents=False, offset=offset),
                     }
                 )
 

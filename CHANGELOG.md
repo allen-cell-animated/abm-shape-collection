@@ -1,3 +1,13 @@
+# [v0.7.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.7.0) - 2023-07-14
+
+> Compare with [v0.6.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.6.0...v0.7.0)
+
+### Features
+
+- Update get shape coefficients to output angle, center, and MSE by [@jessicasyu](https://github.com/jessicasyu) in [#32](https://github.com/allen-cell-animated/abm-shape-collection/pull/32)
+- Add extract mesh projections task by [@jessicasyu](https://github.com/jessicasyu) in [#33](https://github.com/allen-cell-animated/abm-shape-collection/pull/33)
+- Add extract mesh wireframe task by [@jessicasyu](https://github.com/jessicasyu) in [#34](https://github.com/allen-cell-animated/abm-shape-collection/pull/34)
+
 # [v0.6.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.6.0) - 2023-06-29
 
 > Compare with [v0.5.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.5.0...v0.6.0)

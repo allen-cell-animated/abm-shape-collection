@@ -11,12 +11,7 @@ def get_shape_coefficients(array: np.ndarray, reference: np.ndarray, lmax: int) 
     )
 
     mse = shtools.get_reconstruction_error(downsampled_array, reconstructed_array)
-    center = np.argwhere(aligned_array == 1).mean(axis=0)
-
     coeffs["angle"] = angle
     coeffs["mse"] = mse
-    coeffs["center_z"] = center[0]
-    coeffs["center_y"] = center[1]
-    coeffs["center_x"] = center[2]
 
     return coeffs

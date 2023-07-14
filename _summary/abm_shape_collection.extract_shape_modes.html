@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="fit_pca_model" href="abm_shape_collection.fit_pca_model.html" /><link rel="prev" title="construct_mesh_from_points" href="abm_shape_collection.construct_mesh_from_points.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="fit_pca_model" href="abm_shape_collection.fit_pca_model.html" /><link rel="prev" title="extract_mesh_projections" href="abm_shape_collection.extract_mesh_projections.html" />
 
     <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>extract_shape_modes - ABM Shape Collection 0.6.0</title>
@@ -160,16 +160,15 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="abm_shape_collection.html">abm_shape_collection</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of abm_shape_collection</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.calculate_shape_stats.html">calculate_shape_stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.calculate_size_stats.html">calculate_size_stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.compile_shape_modes.html">compile_shape_modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.construct_mesh_from_array.html">construct_mesh_from_array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.construct_mesh_from_coeffs.html">construct_mesh_from_coeffs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.construct_mesh_from_points.html">construct_mesh_from_points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.extract_mesh_projections.html">extract_mesh_projections</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">extract_shape_modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.fit_pca_model.html">fit_pca_model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.get_shape_coefficients.html">get_shape_coefficients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.get_shape_properties.html">get_shape_properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.make_voxels_array.html">make_voxels_array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.merge_shape_modes.html">merge_shape_modes</a></li>
 </ul>
 </li>
 </ul>
@@ -238,63 +237,17 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.extract_shape_modes.extract_shape_mode_slices">
-<span class="sig-name descname"><span class="pre">extract_shape_mode_slices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/extract_shape_modes.html#extract_shape_mode_slices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_shape_modes.extract_shape_mode_slices" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="abm_shape_collection.extract_shape_modes.calculate_region_offsets">
+<span class="sig-name descname"><span class="pre">calculate_region_offsets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/extract_shape_modes.html#calculate_region_offsets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_shape_modes.calculate_region_offsets" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pca</strong> (<em>PCA</em>) – </p></li>
-<li><p><strong>vector</strong> (<em>ndarray</em>) – </p></li>
-<li><p><strong>feature_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>order</strong> (<em>int</em>) – </p></li>
+<li><p><strong>data</strong> (<em>DataFrame</em>) – </p></li>
 <li><p><strong>region</strong> (<em>str</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.extract_shape_modes.convert_vtk_to_trimesh">
-<span class="sig-name descname"><span class="pre">convert_vtk_to_trimesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/extract_shape_modes.html#convert_vtk_to_trimesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_shape_modes.convert_vtk_to_trimesh" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>vtkPolyData</em>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Trimesh</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.extract_shape_modes.get_mesh_slices">
-<span class="sig-name descname"><span class="pre">get_mesh_slices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/extract_shape_modes.html#get_mesh_slices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_shape_modes.get_mesh_slices" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>Trimesh</em>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.extract_shape_modes.get_mesh_slice">
-<span class="sig-name descname"><span class="pre">get_mesh_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/extract_shape_modes.html#get_mesh_slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_shape_modes.get_mesh_slice" title="Permalink to this definition">#</a></dt>
-<dd><p>Get svg slice of mesh along plane for given normal.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<em>Trimesh</em>) – </p></li>
-<li><p><strong>normal</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>]</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -315,14 +268,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="abm_shape_collection.construct_mesh_from_points.html">
+          <a class="prev-page" href="abm_shape_collection.extract_mesh_projections.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">construct_mesh_from_points</div>
+                <div class="title">extract_mesh_projections</div>
                 
               </div>
             </a>
@@ -358,10 +311,7 @@
             <ul>
 <li><a class="reference internal" href="#">extract_shape_modes</a><ul>
 <li><a class="reference internal" href="#abm_shape_collection.extract_shape_modes.extract_shape_modes"><code class="docutils literal notranslate"><span class="pre">extract_shape_modes()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.extract_shape_modes.extract_shape_mode_slices"><code class="docutils literal notranslate"><span class="pre">extract_shape_mode_slices()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.extract_shape_modes.convert_vtk_to_trimesh"><code class="docutils literal notranslate"><span class="pre">convert_vtk_to_trimesh()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.extract_shape_modes.get_mesh_slices"><code class="docutils literal notranslate"><span class="pre">get_mesh_slices()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.extract_shape_modes.get_mesh_slice"><code class="docutils literal notranslate"><span class="pre">get_mesh_slice()</span></code></a></li>
+<li><a class="reference internal" href="#abm_shape_collection.extract_shape_modes.calculate_region_offsets"><code class="docutils literal notranslate"><span class="pre">calculate_region_offsets()</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="construct_mesh_from_array" href="abm_shape_collection.construct_mesh_from_array.html" /><link rel="prev" title="calculate_shape_stats" href="abm_shape_collection.calculate_shape_stats.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="extract_shape_modes" href="abm_shape_collection.extract_shape_modes.html" /><link rel="prev" title="extract_mesh_projections" href="abm_shape_collection.extract_mesh_projections.html" />
 
     <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>calculate_size_stats - ABM Shape Collection 0.6.0</title>
+        <title>extract_mesh_wireframe - ABM Shape Collection 0.6.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -159,12 +159,12 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="abm_shape_collection.html">abm_shape_collection</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of abm_shape_collection</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.calculate_shape_stats.html">calculate_shape_stats</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">calculate_size_stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.calculate_size_stats.html">calculate_size_stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.construct_mesh_from_array.html">construct_mesh_from_array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.construct_mesh_from_coeffs.html">construct_mesh_from_coeffs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.construct_mesh_from_points.html">construct_mesh_from_points</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.extract_mesh_projections.html">extract_mesh_projections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.extract_mesh_wireframe.html">extract_mesh_wireframe</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">extract_mesh_wireframe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.extract_shape_modes.html">extract_shape_modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.fit_pca_model.html">fit_pca_model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="abm_shape_collection.get_shape_coefficients.html">get_shape_coefficients</a></li>
@@ -215,94 +215,20 @@
           </label>
         </div>
         <article role="main">
-          <section id="module-abm_shape_collection.calculate_size_stats">
-<span id="calculate-size-stats"></span><h1>calculate_size_stats<a class="headerlink" href="#module-abm_shape_collection.calculate_size_stats" title="Permalink to this heading">#</a></h1>
+          <section id="module-abm_shape_collection.extract_mesh_wireframe">
+<span id="extract-mesh-wireframe"></span><h1>extract_mesh_wireframe<a class="headerlink" href="#module-abm_shape_collection.extract_mesh_wireframe" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.calculate_size_stats.calculate_size_stats">
-<span class="sig-name descname"><span class="pre">calculate_size_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_reps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/calculate_size_stats.html#calculate_size_stats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="abm_shape_collection.extract_mesh_wireframe.extract_mesh_wireframe">
+<span class="sig-name descname"><span class="pre">extract_mesh_wireframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/extract_mesh_wireframe.html#extract_mesh_wireframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_mesh_wireframe.extract_mesh_wireframe" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>ref_data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>regions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>include_ticks</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>include_samples</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>sample_reps</strong> (<em>int</em>) – </p></li>
-<li><p><strong>sample_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>mesh</strong> (<em>vtkPolyData</em><em> | </em><em>Trimesh</em>) – </p></li>
+<li><p><strong>offset</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.calculate_size_stats.calculate_size_stats_for_all">
-<span class="sig-name descname"><span class="pre">calculate_size_stats_for_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/calculate_size_stats.html#calculate_size_stats_for_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats_for_all" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>ref_data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>feature</strong> (<em>str</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[dict]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.calculate_size_stats.calculate_size_stats_for_ticks">
-<span class="sig-name descname"><span class="pre">calculate_size_stats_for_ticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/calculate_size_stats.html#calculate_size_stats_for_ticks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats_for_ticks" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>ref_data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>feature</strong> (<em>str</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[dict]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.calculate_size_stats.calculate_size_stats_for_samples">
-<span class="sig-name descname"><span class="pre">calculate_size_stats_for_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_reps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/calculate_size_stats.html#calculate_size_stats_for_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats_for_samples" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>ref_data</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>feature</strong> (<em>str</em>) – </p></li>
-<li><p><strong>sample_reps</strong> (<em>int</em>) – </p></li>
-<li><p><strong>sample_size</strong> (<em>int</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[dict]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="abm_shape_collection.calculate_size_stats.get_ks_statistic">
-<span class="sig-name descname"><span class="pre">get_ks_statistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/calculate_size_stats.html#get_ks_statistic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.calculate_size_stats.get_ks_statistic" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>population_a</strong> (<em>ndarray</em>) – </p></li>
-<li><p><strong>population_b</strong> (<em>ndarray</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
+<dd class="field-even"><p>list[list[list[float]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -314,23 +240,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="abm_shape_collection.construct_mesh_from_array.html">
+          <a class="next-page" href="abm_shape_collection.extract_shape_modes.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">construct_mesh_from_array</div>
+                <div class="title">extract_shape_modes</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="abm_shape_collection.calculate_shape_stats.html">
+          <a class="prev-page" href="abm_shape_collection.extract_mesh_projections.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">calculate_shape_stats</div>
+                <div class="title">extract_mesh_projections</div>
                 
               </div>
             </a>
@@ -364,12 +290,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">calculate_size_stats</a><ul>
-<li><a class="reference internal" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats"><code class="docutils literal notranslate"><span class="pre">calculate_size_stats()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats_for_all"><code class="docutils literal notranslate"><span class="pre">calculate_size_stats_for_all()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats_for_ticks"><code class="docutils literal notranslate"><span class="pre">calculate_size_stats_for_ticks()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.calculate_size_stats.calculate_size_stats_for_samples"><code class="docutils literal notranslate"><span class="pre">calculate_size_stats_for_samples()</span></code></a></li>
-<li><a class="reference internal" href="#abm_shape_collection.calculate_size_stats.get_ks_statistic"><code class="docutils literal notranslate"><span class="pre">get_ks_statistic()</span></code></a></li>
+<li><a class="reference internal" href="#">extract_mesh_wireframe</a><ul>
+<li><a class="reference internal" href="#abm_shape_collection.extract_mesh_wireframe.extract_mesh_wireframe"><code class="docutils literal notranslate"><span class="pre">extract_mesh_wireframe()</span></code></a></li>
 </ul>
 </li>
 </ul>

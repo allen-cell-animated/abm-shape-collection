@@ -1,0 +1,22 @@
+extract\_mesh\_wireframe
+========================
+
+.. automodule:: abm_shape_collection.extract_mesh_wireframe
+    :members:
+    :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   

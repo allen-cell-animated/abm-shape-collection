@@ -37,6 +37,7 @@
    construct_mesh_from_coeffs
    construct_mesh_from_points
    extract_mesh_projections
+   extract_mesh_wireframe
    extract_shape_modes
    fit_pca_model
    get_shape_coefficients

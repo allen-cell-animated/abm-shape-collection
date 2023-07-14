@@ -52,7 +52,7 @@ def convert_vtk_to_trimesh(mesh: vtkPolyData) -> trimesh.Trimesh:
 
 
 def get_mesh_slice(mesh: trimesh.Trimesh, normal: tuple[int, int, int]) -> list[list[list[float]]]:
-    """Get slice of mesh along plane for given normal as svg path."""
+    """Get slice of mesh along plane for given normal as path points."""
     mesh_slice = mesh.section_multiplane((0, 0, 0), normal, [0])
     points = [[list(point) for point in entity] for entity in mesh_slice[0].discrete]
     return points
@@ -61,7 +61,7 @@ def get_mesh_slice(mesh: trimesh.Trimesh, normal: tuple[int, int, int]) -> list[
 def get_mesh_extent(
     mesh: trimesh.Trimesh, normal: tuple[int, int, int], index: int
 ) -> dict[float, list[list[list[float]]]]:
-    """Get extent of mesh along plane for given normal as svg path."""
+    """Get extent of mesh along plane for given normal as path points."""
     layers = int(mesh.extents[index] + 2)
     plane_indices = list(np.arange(-layers, layers + 1, 0.5))
     mesh_extents = mesh.section_multiplane((0, 0, 0), normal, plane_indices)

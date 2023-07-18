@@ -1,3 +1,11 @@
+# [v0.7.1](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.7.1) - 2023-07-18
+
+> Compare with [v0.7.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.7.0...v0.7.1)
+
+### Admin
+
+- Bump aicsshparam from 0.1.6 to 0.1.7 by [@jessicasyu](https://github.com/jessicasyu) in [#36](https://github.com/allen-cell-animated/abm-shape-collection/pull/36)
+
 # [v0.7.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.7.0) - 2023-07-14
 
 > Compare with [v0.6.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.6.0...v0.7.0)

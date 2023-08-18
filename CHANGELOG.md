@@ -1,3 +1,15 @@
+# [v0.7.2](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.7.2) - 2023-08-18
+
+> Compare with [v0.7.1](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.7.1...v0.7.2)
+
+### Documentation
+
+- Add module docstrings by [@jessicasyu](https://github.com/jessicasyu) in [#38](https://github.com/allen-cell-animated/abm-shape-collection/pull/38)
+
+### Admin
+
+- Update workflow permissions and badges by [@jessicasyu](https://github.com/jessicasyu) in [#39](https://github.com/allen-cell-animated/abm-shape-collection/pull/39)
+
 # [v0.7.1](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.7.1) - 2023-07-18
 
 > Compare with [v0.7.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.7.0...v0.7.1)

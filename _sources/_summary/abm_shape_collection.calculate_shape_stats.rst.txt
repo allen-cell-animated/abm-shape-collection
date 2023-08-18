@@ -2,8 +2,8 @@ calculate\_shape\_stats
 =======================
 
 .. automodule:: abm_shape_collection.calculate_shape_stats
-    :members:
-    :undoc-members:
+   :members:
+   :undoc-members:
 
    
    

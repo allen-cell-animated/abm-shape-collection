@@ -2,8 +2,8 @@ get\_shape\_coefficients
 ========================
 
 .. automodule:: abm_shape_collection.get_shape_coefficients
-    :members:
-    :undoc-members:
+   :members:
+   :undoc-members:
 
    
    

@@ -2,8 +2,8 @@ fit\_pca\_model
 ===============
 
 .. automodule:: abm_shape_collection.fit_pca_model
-    :members:
-    :undoc-members:
+   :members:
+   :undoc-members:
 
    
    

@@ -2,8 +2,8 @@ construct\_mesh\_from\_points
 =============================
 
 .. automodule:: abm_shape_collection.construct_mesh_from_points
-    :members:
-    :undoc-members:
+   :members:
+   :undoc-members:
 
    
    

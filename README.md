@@ -1,8 +1,10 @@
-[![Build Status](https://github.com/allen-cell-animated/abm-shape-collection/workflows/build/badge.svg)](https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Abuild)
-[![Codecov](https://img.shields.io/codecov/c/gh/allen-cell-animated/abm-shape-collection?token=FMO7XIX5KH)](https://codecov.io/gh/allen-cell-animated/abm-shape-collection)
-[![Lint Status](https://github.com/allen-cell-animated/abm-shape-collection/workflows/lint/badge.svg)](https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Alint)
-[![Documentation](https://github.com/allen-cell-animated/abm-shape-collection/workflows/documentation/badge.svg)](https://allen-cell-animated.github.io/abm-shape-collection/)
-[![Code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Build Status](https://allen-cell-animated.github.io/abm-shape-collection/_badges/build.svg)](https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Abuild)
+[![Lint Status](https://allen-cell-animated.github.io/abm-shape-collection/_badges/lint.svg)](https://github.com/allen-cell-animated/abm-shape-collection/actions?query=workflow%3Alint)
+[![Documentation](https://allen-cell-animated.github.io/abm-shape-collection/_badges/documentation.svg)](https://allen-cell-animated.github.io/abm-shape-collection/)
+[![Coverage](https://allen-cell-animated.github.io/abm-shape-collection/_badges/coverage.svg)](https://allen-cell-animated.github.io/abm-shape-collection/_coverage/)
+[![Code style](https://allen-cell-animated.github.io/abm-shape-collection/_badges/style.svg)](https://github.com/psf/black)
+[![Version](https://allen-cell-animated.github.io/abm-shape-collection/_badges/version.svg)](https://pypi.org/project/abm-shape-collection/)
+[![License](https://allen-cell-animated.github.io/abm-shape-collection/_badges/license.svg)](https://github.com/allen-cell-animated/abm-shape-collection/blob/main/LICENSE)
 
 Collection of tasks for analyzing cell shapes.
 Designed to be used both in [Prefect](https://docs.prefect.io/latest/) workflows and as modular, useful pieces of code.

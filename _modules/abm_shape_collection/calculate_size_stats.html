@@ -248,7 +248,7 @@
             <span class="p">)</span>
 
         <span class="n">stats_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
-        <span class="n">stats_df</span><span class="p">[</span><span class="s2">&quot;FEATURE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span>
+        <span class="n">stats_df</span><span class="p">[</span><span class="s2">&quot;FEATURE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
         <span class="n">all_stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stats_df</span><span class="p">)</span>
 
     <span class="n">all_stats_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_stats</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>

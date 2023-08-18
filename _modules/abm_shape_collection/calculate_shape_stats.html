@@ -250,7 +250,7 @@
             <span class="p">)</span>
 
         <span class="n">stats_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
-        <span class="n">stats_df</span><span class="p">[</span><span class="s2">&quot;FEATURE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;PC_</span><span class="si">{</span><span class="n">component</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">stats_df</span><span class="p">[</span><span class="s2">&quot;FEATURE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">component</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">all_stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stats_df</span><span class="p">)</span>
 
     <span class="n">all_stats_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_stats</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>

@@ -34,7 +34,7 @@ def calculate_shape_stats(
             )
 
         stats_df = pd.DataFrame(stats)
-        stats_df["FEATURE"] = f"PC_{component + 1}"
+        stats_df["FEATURE"] = f"PC{component + 1}"
         all_stats.append(stats_df)
 
     all_stats_df = pd.concat(all_stats).astype({"N": int})

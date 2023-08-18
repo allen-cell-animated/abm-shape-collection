@@ -32,7 +32,7 @@ def calculate_size_stats(
             )
 
         stats_df = pd.DataFrame(stats)
-        stats_df["FEATURE"] = feature
+        stats_df["FEATURE"] = feature.upper()
         all_stats.append(stats_df)
 
     all_stats_df = pd.concat(all_stats).astype({"N": int})

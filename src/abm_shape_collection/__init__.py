@@ -1,3 +1,5 @@
+"""Tasks for analyzing cell shapes including spherical harmonics and shape modes."""
+
 from prefect import task
 
 from .calculate_shape_stats import calculate_shape_stats

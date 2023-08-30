@@ -1,3 +1,11 @@
+# [v0.8.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.8.0) - 2023-08-30
+
+> Compare with [v0.7.2](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.7.2...v0.8.0)
+
+### Features
+
+- Refactor calculate tasks by [@jessicasyu](https://github.com/jessicasyu) in [#42](https://github.com/allen-cell-animated/abm-shape-collection/pull/42)
+
 # [v0.7.2](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.7.2) - 2023-08-18
 
 > Compare with [v0.7.1](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.7.1...v0.7.2)

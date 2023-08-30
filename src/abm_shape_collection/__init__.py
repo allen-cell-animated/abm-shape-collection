@@ -2,8 +2,8 @@
 
 from prefect import task
 
-from .calculate_shape_statistics import calculate_shape_statistics
 from .calculate_feature_statistics import calculate_feature_statistics
+from .calculate_shape_statistics import calculate_shape_statistics
 from .construct_mesh_from_array import construct_mesh_from_array
 from .construct_mesh_from_coeffs import construct_mesh_from_coeffs
 from .construct_mesh_from_points import construct_mesh_from_points

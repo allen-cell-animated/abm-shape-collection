@@ -8,9 +8,9 @@ def fit_pca_model(features: np.ndarray, components: int, ordering: np.ndarray) -
     pca = pca.fit(features)
 
     # Reorient features by ordering data.
-    transformed = pca.transform(features)
+    transform = pca.transform(features)
     for i in range(components):
-        pearson = np.corrcoef(ordering, transformed[:, i])
+        pearson = np.corrcoef(ordering, transform[:, i])
         if pearson[0, 1] < 0:
             pca.components_[i] = pca.components_[i] * -1
 

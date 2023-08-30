@@ -10,8 +10,8 @@ def extract_shape_modes(
     pca: PCA, data: pd.DataFrame, components: int, regions: list[str], order: int, delta: float
 ) -> dict:
     # Transform data into shape mode space.
-    features = data.filter(like="shcoeffs").columns
-    transform = pca.transform(data[features].values)
+    columns = data.filter(like="shcoeffs").columns
+    transform = pca.transform(data[columns].values)
 
     # Calculate transformed means and standard deviations.
     means = transform.mean(axis=0)
@@ -21,11 +21,6 @@ def extract_shape_modes(
     map_points = np.arange(-2, 2.5, delta)
     bin_edges = [-np.inf] + [point + delta / 2 for point in map_points[:-1]] + [np.inf]
     transform_binned = np.digitize(transform / stds, bin_edges)
-
-    # Calculate offsets.
-    offsets = {
-        region: calculate_region_offsets(data, region) for region in regions if region != "DEFAULT"
-    }
 
     # Initialize output dictionary.
     shape_modes: dict[str, list] = {}
@@ -46,7 +41,7 @@ def extract_shape_modes(
                 vector = means + np.multiply(stds, point_vector)
                 indices = transform_binned[:, component] == point_bin
 
-                mesh = construct_mesh_from_points(pca, vector, features, order, suffix=suffix)
+                mesh = construct_mesh_from_points(pca, vector, columns, order, suffix=suffix)
 
                 if region == "DEFAULT":
                     offset = None

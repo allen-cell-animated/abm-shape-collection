@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>abm_shape_collection.fit_pca_model - ABM Shape Collection 0.7.2</title>
+        <title>abm_shape_collection.calculate_feature_statistics - ABM Shape Collection 0.7.2</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -213,24 +213,36 @@
           </label>
         </div>
         <article role="main">
-          <h1>Source code for abm_shape_collection.fit_pca_model</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+          <h1>Source code for abm_shape_collection.calculate_feature_statistics</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ks_2samp</span>
 
 
-<div class="viewcode-block" id="fit_pca_model"><a class="viewcode-back" href="../../_summary/abm_shape_collection.fit_pca_model.html#abm_shape_collection.fit_pca_model.fit_pca_model">[docs]</a><span class="k">def</span> <span class="nf">fit_pca_model</span><span class="p">(</span><span class="n">features</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">components</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ordering</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PCA</span><span class="p">:</span>
-    <span class="c1"># Fit data.</span>
-    <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">components</span><span class="p">)</span>
-    <span class="n">pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<div class="viewcode-block" id="calculate_feature_statistics"><a class="viewcode-back" href="../../_summary/abm_shape_collection.calculate_feature_statistics.html#abm_shape_collection.calculate_feature_statistics.calculate_feature_statistics">[docs]</a><span class="k">def</span> <span class="nf">calculate_feature_statistics</span><span class="p">(</span>
+    <span class="n">features</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">ref_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">statistics</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="c1"># Reorient features by ordering data.</span>
-    <span class="n">transform</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">components</span><span class="p">):</span>
-        <span class="n">pearson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">ordering</span><span class="p">,</span> <span class="n">transform</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">pearson</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+        <span class="c1"># Extract values for specific component.</span>
+        <span class="n">ref_values</span> <span class="o">=</span> <span class="n">ref_data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
-    <span class="k">return</span> <span class="n">pca</span></div>
+        <span class="c1"># Calculate Kolmogorov–Smirnov statistic.</span>
+        <span class="n">ks_result</span> <span class="o">=</span> <span class="n">ks_2samp</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ref_values</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;asymp&quot;</span><span class="p">)</span>
+
+        <span class="n">statistics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;FEATURE&quot;</span><span class="p">:</span> <span class="n">feature</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
+                <span class="s2">&quot;SIZE&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span>
+                <span class="s2">&quot;KS_STATISTIC&quot;</span><span class="p">:</span> <span class="n">ks_result</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span>
+                <span class="s2">&quot;KS_PVALUE&quot;</span><span class="p">:</span> <span class="n">ks_result</span><span class="o">.</span><span class="n">pvalue</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">statistics</span><span class="p">)</span></div>
 </pre></div>
         </article>
       </div>

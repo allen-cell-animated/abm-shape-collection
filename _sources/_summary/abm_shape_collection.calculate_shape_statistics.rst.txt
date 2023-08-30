@@ -1,0 +1,22 @@
+calculate\_shape\_statistics
+============================
+
+.. automodule:: abm_shape_collection.calculate_shape_statistics
+   :members:
+   :undoc-members:
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   

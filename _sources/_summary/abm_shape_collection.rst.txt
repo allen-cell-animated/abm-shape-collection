@@ -31,8 +31,8 @@
    :template: custom_module.rst
    :recursive:
 
-   calculate_shape_stats
-   calculate_size_stats
+   calculate_feature_statistics
+   calculate_shape_statistics
    construct_mesh_from_array
    construct_mesh_from_coeffs
    construct_mesh_from_points

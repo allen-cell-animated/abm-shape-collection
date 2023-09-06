@@ -43,7 +43,7 @@ def extract_shape_modes(
 
                 mesh = construct_mesh_from_points(pca, vector, columns, order, suffix=suffix)
 
-                if region == "DEFAULT":
+                if region == "DEFAULT" or not any(indices):
                     offset = None
                 else:
                     offset = (

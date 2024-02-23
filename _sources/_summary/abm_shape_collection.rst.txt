@@ -39,6 +39,7 @@
    extract_mesh_projections
    extract_mesh_wireframe
    extract_shape_modes
+   extract_voxel_contours
    fit_pca_model
    get_shape_coefficients
    get_shape_properties

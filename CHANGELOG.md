@@ -1,3 +1,15 @@
+# [v0.9.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.9.0) - 2024-02-23
+
+> Compare with [v0.8.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.8.0...v0.9.0)
+
+### Features
+
+- Add extract voxel contours task by [@jessicasyu](https://github.com/jessicasyu) in [#45](https://github.com/allen-cell-animated/abm-shape-collection/pull/45)
+
+### Bug fixes
+
+- Add check for shape mode bins without offsets by [@jessicasyu](https://github.com/jessicasyu) in [#44](https://github.com/allen-cell-animated/abm-shape-collection/pull/44)
+
 # [v0.8.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.8.0) - 2023-08-30
 
 > Compare with [v0.7.2](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.7.2...v0.8.0)

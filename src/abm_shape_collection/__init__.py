@@ -10,6 +10,7 @@ from .construct_mesh_from_points import construct_mesh_from_points
 from .extract_mesh_projections import extract_mesh_projections
 from .extract_mesh_wireframe import extract_mesh_wireframe
 from .extract_shape_modes import extract_shape_modes
+from .extract_voxel_contours import extract_voxel_contours
 from .fit_pca_model import fit_pca_model
 from .get_shape_coefficients import get_shape_coefficients
 from .get_shape_properties import get_shape_properties
@@ -23,6 +24,7 @@ construct_mesh_from_points = task(construct_mesh_from_points)
 extract_mesh_projections = task(extract_mesh_projections)
 extract_mesh_wireframe = task(extract_mesh_wireframe)
 extract_shape_modes = task(extract_shape_modes)
+extract_voxel_contours = task(extract_voxel_contours)
 fit_pca_model = task(fit_pca_model)
 get_shape_coefficients = task(get_shape_coefficients)
 get_shape_properties = task(get_shape_properties)

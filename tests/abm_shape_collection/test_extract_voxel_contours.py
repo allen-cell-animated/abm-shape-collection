@@ -22,23 +22,23 @@ class TestExtractVoxelContours(unittest.TestCase):
         ]
 
         expected_short_contour = [
-            [5, 6],
-            [6, 6],
-            [6, 5],
-            [5, 5],
-            [5, 6],
+            (5, 6),
+            (6, 6),
+            (6, 5),
+            (5, 5),
+            (5, 6),
         ]
 
         expected_long_contour = [
-            [0, 1],
-            [3, 1],
-            [3, 3],
-            [2, 3],
-            [2, 2],
-            [1, 2],
-            [1, 0],
-            [0, 0],
-            [0, 1],
+            (0, 1),
+            (3, 1),
+            (3, 3),
+            (2, 3),
+            (2, 2),
+            (1, 2),
+            (1, 0),
+            (0, 0),
+            (0, 1),
         ]
 
         contours = extract_voxel_contours(all_voxels, "top", box)
@@ -86,23 +86,23 @@ class TestExtractVoxelContours(unittest.TestCase):
         ]
 
         expected_short_contour = [
-            [5, 6],
-            [6, 6],
-            [6, 5],
-            [5, 5],
-            [5, 6],
+            (5, 6),
+            (6, 6),
+            (6, 5),
+            (5, 5),
+            (5, 6),
         ]
 
         expected_long_contour = [
-            [0, 1],
-            [3, 1],
-            [3, 3],
-            [2, 3],
-            [2, 2],
-            [1, 2],
-            [1, 0],
-            [0, 0],
-            [0, 1],
+            (0, 1),
+            (3, 1),
+            (3, 3),
+            (2, 3),
+            (2, 2),
+            (1, 2),
+            (1, 0),
+            (0, 0),
+            (0, 1),
         ]
 
         contours = extract_voxel_contours(all_voxels, "side1", box)
@@ -150,23 +150,23 @@ class TestExtractVoxelContours(unittest.TestCase):
         ]
 
         expected_short_contour = [
-            [5, 6],
-            [6, 6],
-            [6, 5],
-            [5, 5],
-            [5, 6],
+            (5, 6),
+            (6, 6),
+            (6, 5),
+            (5, 5),
+            (5, 6),
         ]
 
         expected_long_contour = [
-            [0, 1],
-            [3, 1],
-            [3, 3],
-            [2, 3],
-            [2, 2],
-            [1, 2],
-            [1, 0],
-            [0, 0],
-            [0, 1],
+            (0, 1),
+            (3, 1),
+            (3, 3),
+            (2, 3),
+            (2, 2),
+            (1, 2),
+            (1, 0),
+            (0, 0),
+            (0, 1),
         ]
 
         contours = extract_voxel_contours(all_voxels, "side2", box)
@@ -280,15 +280,15 @@ class TestExtractVoxelContours(unittest.TestCase):
         ]
 
         expected_contour = [
-            [1, 1],
-            [1, 2],
-            [2, 2],
-            [2, 3],
-            [3, 3],
-            [3, 2],
-            [3, 1],
-            [2, 1],
-            [1, 1],
+            (1, 1),
+            (1, 2),
+            (2, 2),
+            (2, 3),
+            (3, 3),
+            (3, 2),
+            (3, 1),
+            (2, 1),
+            (1, 1),
         ]
 
         contours = connect_array_edges(edges)
@@ -327,23 +327,23 @@ class TestExtractVoxelContours(unittest.TestCase):
         ]
 
         expected_short_contour = [
-            [3, 4],
-            [3, 5],
-            [4, 5],
-            [4, 4],
-            [3, 4],
+            (3, 4),
+            (3, 5),
+            (4, 5),
+            (4, 4),
+            (3, 4),
         ]
 
         expected_long_contour = [
-            [1, 1],
-            [1, 2],
-            [2, 2],
-            [2, 3],
-            [3, 3],
-            [3, 2],
-            [3, 1],
-            [2, 1],
-            [1, 1],
+            (1, 1),
+            (1, 2),
+            (2, 2),
+            (2, 3),
+            (3, 3),
+            (3, 2),
+            (3, 1),
+            (2, 1),
+            (1, 1),
         ]
 
         contours = connect_array_edges(edges)
@@ -382,22 +382,22 @@ class TestExtractVoxelContours(unittest.TestCase):
 
     def test_merge_contour_edges_square(self):
         contour = [
-            [1, 1],
-            [1, 2],
-            [1, 3],
-            [2, 3],
-            [3, 3],
-            [3, 2],
-            [3, 1],
-            [2, 1],
-            [1, 1],
+            (1, 1),
+            (1, 2),
+            (1, 3),
+            (2, 3),
+            (3, 3),
+            (3, 2),
+            (3, 1),
+            (2, 1),
+            (1, 1),
         ]
 
         expected_merged_contour = [
-            [1, 1],
-            [1, 3],
-            [3, 3],
-            [3, 1],
+            (1, 1),
+            (1, 3),
+            (3, 3),
+            (3, 1),
         ]
 
         merged_contour = merge_contour_edges(contour)
@@ -420,26 +420,26 @@ class TestExtractVoxelContours(unittest.TestCase):
 
     def test_merge_contour_edges_rectangle(self):
         contour = [
-            [1, 1],
-            [1, 2],
-            [1, 3],
-            [1, 4],
-            [1, 5],
-            [2, 5],
-            [3, 5],
-            [3, 4],
-            [3, 3],
-            [3, 2],
-            [3, 1],
-            [2, 1],
-            [1, 1],
+            (1, 1),
+            (1, 2),
+            (1, 3),
+            (1, 4),
+            (1, 5),
+            (2, 5),
+            (3, 5),
+            (3, 4),
+            (3, 3),
+            (3, 2),
+            (3, 1),
+            (2, 1),
+            (1, 1),
         ]
 
         expected_merged_contour = [
-            [1, 1],
-            [1, 5],
-            [3, 5],
-            [3, 1],
+            (1, 1),
+            (1, 5),
+            (3, 5),
+            (3, 1),
         ]
 
         merged_contour = merge_contour_edges(contour)

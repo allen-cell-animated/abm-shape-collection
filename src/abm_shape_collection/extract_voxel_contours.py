@@ -35,7 +35,7 @@ def get_array_edges(array: np.ndarray) -> list[list[tuple[int, int]]]:
     edges = []
     x, y = np.nonzero(array)
 
-    for i, j in zip(x, y):
+    for i, j in zip(x.tolist(), y.tolist()):
         if j == array.shape[1] - 1 or not array[i, j + 1]:
             edges.append([(i, j + 1), (i + 1, j + 1)])
 

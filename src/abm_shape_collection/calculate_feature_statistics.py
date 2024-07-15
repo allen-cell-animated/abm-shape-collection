@@ -7,6 +7,24 @@ def calculate_feature_statistics(
     data: pd.DataFrame,
     ref_data: pd.DataFrame,
 ) -> pd.DataFrame:
+    """
+    Perform two-sample Kolmogorov-Smirnov test for goodness of fit on features.
+
+    Parameters
+    ----------
+    features
+        List of features to perform test on.
+    data
+        Sample data, with features as columns.
+    ref_data : pd.DataFrame
+        References data, with features as columns.
+
+    Returns
+    -------
+    :
+        Kolmogorov-Smirnov statistics and p-values for each feature.
+    """
+
     statistics = []
 
     for feature in features:

@@ -24,9 +24,9 @@ def extract_mesh_projections(
     if offset is not None:
         mesh.apply_translation(offset)
 
-    projections: dict[
-        str, Union[list[list[list[float]]], dict[float, list[list[list[float]]]]]
-    ] = {}
+    projections: dict[str, Union[list[list[list[float]]], dict[float, list[list[list[float]]]]]] = (
+        {}
+    )
 
     if slices:
         for projection, normal, _ in PROJECTIONS:

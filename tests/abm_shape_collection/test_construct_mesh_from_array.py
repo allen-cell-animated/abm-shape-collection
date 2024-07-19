@@ -10,7 +10,6 @@ class TestConstructMeshFromArray(unittest.TestCase):
     def test_construct_mesh_from_array_same_reference(self):
         array = np.zeros((10, 10, 10))
         array[4:6, 4:6, 2:8] = 1
-        array[4, :, :]
 
         expected_coords = [
             (x, y, z)

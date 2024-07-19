@@ -42,7 +42,7 @@ build-backend = "poetry.core.masonry.api"
 disable = [
     "missing-module-docstring",
 ]
-good-names = ["i", "j", "k", "x", "y", "z"]
+good-names = ["i", "j", "k", "x", "y", "z", "x0", "y0", "x1", "y1", "x2", "y2"]
 
 [tool.pylint.design]
 max-args = 10 # maximum number of arguments for function / method

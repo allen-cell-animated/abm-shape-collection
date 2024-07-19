@@ -6,7 +6,7 @@ from vtk import vtkCellArray, vtkIdList, vtkPoints, vtkPolyData
 from abm_shape_collection.extract_mesh_wireframe import extract_mesh_wireframe
 
 
-class TestConstructExtractMeshProjections(unittest.TestCase):
+class TestExtractMeshProjections(unittest.TestCase):
     def setUp(self) -> None:
         vertices = [
             (-1, -1, 0),
@@ -78,14 +78,14 @@ class TestConstructExtractMeshProjections(unittest.TestCase):
 
         self.wireframe = [sorted(edge) for edge in wireframe]
 
-    def test_extract_extract_mesh_wireframe_no_translation(self):
+    def test_extract_mesh_wireframe_no_translation(self):
         wireframe = extract_mesh_wireframe(self.vtk_mesh, offset=None)
 
         self.assertTrue(len(self.wireframe) == len(wireframe))
         for edge in wireframe:
             self.assertTrue(sorted(edge) in self.wireframe)
 
-    def test_extract_extract_mesh_wireframe_with_translation(self):
+    def test_extract_mesh_wireframe_with_translation(self):
         offset = (0.5, 0.0, 0.0)
         wireframe = extract_mesh_wireframe(self.tri_mesh, offset=offset)
 

@@ -12,7 +12,7 @@ from abm_shape_collection.extract_mesh_projections import (
 )
 
 
-class TestConstructExtractMeshProjections(unittest.TestCase):
+class TestExtractMeshProjections(unittest.TestCase):
     def setUp(self) -> None:
         vertices = [
             (-1, -1, 0),
@@ -115,7 +115,7 @@ class TestConstructExtractMeshProjections(unittest.TestCase):
             },
         }
 
-    def test_extract_extract_mesh_projections_slices_no_translation(self):
+    def test_extract_mesh_projections_slices_no_translation(self):
         projections = extract_mesh_projections(
             self.vtk_mesh, slices=True, extents=False, offset=None
         )
@@ -123,7 +123,7 @@ class TestConstructExtractMeshProjections(unittest.TestCase):
             self.assertCountEqual(self.slices[proj], projections[f"{proj}_slice"])
             self.assertFalse(f"{proj}_extent" in proj)
 
-    def test_extract_extract_mesh_projections_extents_no_translation(self):
+    def test_extract_mesh_projections_extents_no_translation(self):
         projections = extract_mesh_projections(
             self.vtk_mesh, slices=False, extents=True, offset=None
         )
@@ -131,7 +131,7 @@ class TestConstructExtractMeshProjections(unittest.TestCase):
             self.assertDictEqual(self.extents[proj], projections[f"{proj}_extent"])
             self.assertFalse(f"{proj}_slice" in proj)
 
-    def test_extract_extract_mesh_projections_with_translation(self):
+    def test_extract_mesh_projections_with_translation(self):
         offset = (0.5, 0, 0)
         projections = extract_mesh_projections(
             self.tri_mesh_offset, slices=True, extents=True, offset=offset

@@ -1,7 +1,11 @@
 import numpy as np
 import pandas as pd
 from aicsshparam import shtools
-from vtk import vtkPolyData, vtkTransform, vtkTransformPolyDataFilter
+from vtk import (  # pylint: disable=no-name-in-module
+    vtkPolyData,
+    vtkTransform,
+    vtkTransformPolyDataFilter,
+)
 
 
 def construct_mesh_from_coeffs(
@@ -11,16 +15,38 @@ def construct_mesh_from_coeffs(
     suffix: str = "",
     scale: float = 1.0,
 ) -> vtkPolyData:
+    """
+    Constructs a mesh from spherical harmonic coefficients.
+
+    Parameters
+    ----------
+    coeffs
+        Spherical harmonic coefficients.
+    order
+        Order of the spherical harmonics coefficient parametrization.
+    prefix
+        Prefix string for all coefficient columns.
+    suffix
+        Suffix string for all coefficient columns.
+    scale
+        Scale factor for mesh points.
+
+    Returns
+    -------
+    :
+        Mesh object.
+    """
+
     coeffs_map = np.zeros((2, order + 1, order + 1), dtype=np.float32)
 
-    for l in range(order + 1):
-        for m in range(order + 1):
-            coeffs_map[0, l, m] = coeffs[f"{prefix}shcoeffs_L{l}M{m}C{suffix}"]
-            coeffs_map[1, l, m] = coeffs[f"{prefix}shcoeffs_L{l}M{m}S{suffix}"]
+    for lix in range(order + 1):
+        for mix in range(order + 1):
+            coeffs_map[0, lix, mix] = coeffs[f"{prefix}shcoeffs_L{lix}M{mix}C{suffix}"]
+            coeffs_map[1, lix, mix] = coeffs[f"{prefix}shcoeffs_L{lix}M{mix}S{suffix}"]
 
     mesh, _ = shtools.get_reconstruction_from_coeffs(coeffs_map)
 
-    if scale != 1:
+    if scale != 1.0:
         transform = vtkTransform()
         transform.Scale((scale, scale, scale))
 

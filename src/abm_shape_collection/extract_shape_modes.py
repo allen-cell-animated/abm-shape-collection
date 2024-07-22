@@ -1,3 +1,5 @@
+from typing import Callable
+
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
@@ -7,8 +9,41 @@ from abm_shape_collection.extract_mesh_projections import extract_mesh_projectio
 
 
 def extract_shape_modes(
-    pca: PCA, data: pd.DataFrame, components: int, regions: list[str], order: int, delta: float
+    pca: PCA,
+    data: pd.DataFrame,
+    components: int,
+    regions: list[str],
+    order: int,
+    delta: float,
+    _construct_mesh_from_points: Callable = construct_mesh_from_points,
+    _extract_mesh_projections: Callable = extract_mesh_projections,
 ) -> dict:
+    """
+    Extract shape modes (latent walks in PC space) at the specified intervals.
+
+    Parameters
+    ----------
+    pca
+        Fit PCA object.
+    data
+        Sample data, with shape coefficients as columns.
+    components
+        Number of shape coefficients components.
+    regions
+        List of regions.
+    order
+        Order of the spherical harmonics coefficient parametrization.
+    delta
+        Interval for latent walk, bounded by -2 and +2 standard deviations.
+
+    Returns
+    -------
+    :
+        Map of regions to lists of shape modes at select points.
+    """
+
+    # pylint: disable=too-many-locals
+
     # Transform data into shape mode space.
     columns = data.filter(like="shcoeffs").columns
     transform = pca.transform(data[columns].values)
@@ -41,7 +76,7 @@ def extract_shape_modes(
                 vector = means + np.multiply(stds, point_vector)
                 indices = transform_binned[:, component] == point_bin
 
-                mesh = construct_mesh_from_points(pca, vector, columns, order, suffix=suffix)
+                mesh = _construct_mesh_from_points(pca, vector, columns, order, suffix=suffix)
 
                 if region == "DEFAULT" or not any(indices):
                     offset = None
@@ -56,7 +91,9 @@ def extract_shape_modes(
                     {
                         "mode": component + 1,
                         "point": point,
-                        "projections": extract_mesh_projections(mesh, extents=False, offset=offset),
+                        "projections": _extract_mesh_projections(
+                            mesh, extents=False, offset=offset
+                        ),
                     }
                 )
 
@@ -66,6 +103,22 @@ def extract_shape_modes(
 
 
 def calculate_region_offsets(data: pd.DataFrame, region: str) -> dict:
+    """
+    Calculate offsets for non-default regions.
+
+    Parameters
+    ----------
+    data
+        Centroid location data.
+    region
+        Name of region (skipped if region is DEFAULT).
+
+    Returns
+    -------
+    :
+        Map of offsets in the x, y, and z directions.
+    """
+
     if region == "DEFAULT":
         return {}
 

@@ -203,7 +203,7 @@ class TestExtractVoxelContours(unittest.TestCase):
             )
         )
 
-    def test_extract_get_array_edges_single_component(self):
+    def test_get_array_edges_single_component(self):
         array = np.array(
             [
                 [False, False, False, False, False],
@@ -230,10 +230,10 @@ class TestExtractVoxelContours(unittest.TestCase):
 
         for edge in edges:
             self.assertTrue(
-                any([set(expected_edge) == set(edge) for expected_edge in expected_edges])
+                any(set(expected_edge) == set(edge) for expected_edge in expected_edges)
             )
 
-    def test_extract_get_array_edges_multiple_components(self):
+    def test_get_array_edges_multiple_components(self):
         array = np.array(
             [
                 [False, False, False, False, False],
@@ -264,7 +264,7 @@ class TestExtractVoxelContours(unittest.TestCase):
 
         for edge in edges:
             self.assertTrue(
-                any([set(expected_edge) == set(edge) for expected_edge in expected_edges])
+                any(set(expected_edge) == set(edge) for expected_edge in expected_edges)
             )
 
     def test_connect_array_edges_single_component(self):

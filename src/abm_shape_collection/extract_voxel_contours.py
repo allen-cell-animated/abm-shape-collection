@@ -6,6 +6,24 @@ def extract_voxel_contours(
     projection: str,
     box: tuple[int, int, int],
 ) -> list[list[tuple[int, int]]]:
+    """
+    Extract contours from list of voxels in specified projection direction.
+
+    Parameters
+    ----------
+    all_voxels
+        List of all voxels in region.
+    projection
+        Projection direction.
+    box
+        Bounding box.
+
+    Returns
+    -------
+    :
+        List of list of contour points.
+    """
+
     voxels = set()
     length, width, height = box
 
@@ -32,6 +50,20 @@ def extract_voxel_contours(
 
 
 def get_array_edges(array: np.ndarray) -> list[list[tuple[int, int]]]:
+    """
+    Get edges of region in binary array.
+
+    Parameters
+    ----------
+    array
+        Binary array.
+
+    Returns
+    -------
+    :
+        List of unconnected region edges.
+    """
+
     edges = []
     x, y = np.nonzero(array)
 
@@ -52,6 +84,20 @@ def get_array_edges(array: np.ndarray) -> list[list[tuple[int, int]]]:
 
 
 def connect_array_edges(edges: list[list[tuple[int, int]]]) -> list[list[tuple[int, int]]]:
+    """
+    Group unconnected region edges into connected contour edges.
+
+    Parameters
+    ----------
+    edges
+        List of unconnected region edges.
+
+    Returns
+    -------
+    :
+        List of connected contour edges.
+    """
+
     contours: list[list[tuple[int, int]]] = []
 
     while edges:
@@ -75,12 +121,26 @@ def connect_array_edges(edges: list[list[tuple[int, int]]]) -> list[list[tuple[i
                 contour.extend(list(reversed(backward[0]))[1:])
 
             if contour_length == len(contour):
-                contours.append([(x, y) for x, y in contour])
+                contours.append(list(contour))
 
     return sorted(contours, key=len)
 
 
 def merge_contour_edges(contour: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """
+    Merge connected contour edges.
+
+    Parameters
+    ----------
+    contour
+       List of connected contour edges.
+
+    Returns
+    -------
+    :
+        List of connected contours.
+    """
+
     merged = contour.copy()
 
     for (x0, y0), (x1, y1), (x2, y2) in zip(contour, contour[1:], contour[2:]):

@@ -8,11 +8,35 @@ def calculate_shape_statistics(
     data: pd.DataFrame,
     ref_data: pd.DataFrame,
     components: int,
+    label: str = "shcoeffs",
 ) -> pd.DataFrame:
+    """
+    Perform two-sample Kolmogorov-Smirnov test for goodness of fit on shape
+    components.
+
+    Parameters
+    ----------
+    pca
+        Fit PCA object.
+    data
+        Sample data, with shape coefficients as columns.
+    ref_data : pd.DataFrame
+        References data, with shape coefficients as columns.
+    components
+        Number of shape coefficients components.
+    label
+        Label for shape coefficients columns.
+
+    Returns
+    -------
+    :
+        Kolmogorov-Smirnov statistics and p-values for each component.
+    """
+
     statistics = []
 
     # Transform data into shape mode space.
-    columns = ref_data.filter(like="shcoeffs").columns
+    columns = ref_data.filter(like=label).columns
     ref_transform = pca.transform(ref_data[columns].values)
     transform = pca.transform(data[columns].values)
 

@@ -8,6 +8,24 @@ def make_voxels_array(
     reference: Optional[list[tuple[int, int, int]]] = None,
     scale: int = 1,
 ) -> np.ndarray:
+    """
+    Converts list of voxels in binary image array.
+
+    Parameters
+    ----------
+    voxels
+        List of (x, y, z) voxels.
+    reference
+        List of (x, y, z) reference voxels used to define center and image size.
+    scale
+        Scaling factor for image array.
+
+    Returns
+    -------
+    :
+        Binary image array.
+    """
+
     # Set reference if not specified.
     if reference is None:
         reference = voxels
@@ -27,8 +45,7 @@ def make_voxels_array(
     array_offset = [
         (z - mins[0] + 1, y - mins[1] + 1, x - mins[2] + 1) for z, y, x in voxels_centered
     ]
-    vals = [1] * len(array_offset)
-    array[tuple(np.transpose(array_offset))] = vals
+    array[tuple(np.transpose(array_offset))] = [1] * len(array_offset)
 
     # Scale the array.
     if scale > 1:

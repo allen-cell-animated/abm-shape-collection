@@ -220,6 +220,25 @@
 
 
 <div class="viewcode-block" id="get_shape_properties"><a class="viewcode-back" href="../../_summary/abm_shape_collection.get_shape_properties.html#abm_shape_collection.get_shape_properties.get_shape_properties">[docs]</a><span class="k">def</span> <span class="nf">get_shape_properties</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">properties</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate shape properties for binary image array.</span>
+
+<span class="sd">    Shape properties must be value properties from skimage.measure.regionprops.</span>
+<span class="sd">    Image is projected along the first axis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    array</span>
+<span class="sd">        Binary image array.</span>
+<span class="sd">    properties</span>
+<span class="sd">        List of shape properties to calculate.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        Dictionary of calculated shape properties.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">flattened_array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="n">properties_dict</span> <span class="o">=</span> <span class="n">regionprops_table</span><span class="p">(</span><span class="n">flattened_array</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">properties</span><span class="p">)</span>

@@ -225,11 +225,35 @@
     <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">ref_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">components</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;shcoeffs&quot;</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform two-sample Kolmogorov-Smirnov test for goodness of fit on shape</span>
+<span class="sd">    components.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pca</span>
+<span class="sd">        Fit PCA object.</span>
+<span class="sd">    data</span>
+<span class="sd">        Sample data, with shape coefficients as columns.</span>
+<span class="sd">    ref_data : pd.DataFrame</span>
+<span class="sd">        References data, with shape coefficients as columns.</span>
+<span class="sd">    components</span>
+<span class="sd">        Number of shape coefficients components.</span>
+<span class="sd">    label</span>
+<span class="sd">        Label for shape coefficients columns.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        Kolmogorov-Smirnov statistics and p-values for each component.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">statistics</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c1"># Transform data into shape mode space.</span>
-    <span class="n">columns</span> <span class="o">=</span> <span class="n">ref_data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s2">&quot;shcoeffs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="n">ref_data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
     <span class="n">ref_transform</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">ref_data</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     <span class="n">transform</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 

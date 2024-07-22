@@ -218,7 +218,7 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
-<span class="kn">from</span> <span class="nn">vtk</span> <span class="kn">import</span> <span class="n">vtkPolyData</span>
+<span class="kn">from</span> <span class="nn">vtk</span> <span class="kn">import</span> <span class="n">vtkPolyData</span>  <span class="c1"># pylint: disable=no-name-in-module</span>
 
 <span class="kn">from</span> <span class="nn">abm_shape_collection.construct_mesh_from_coeffs</span> <span class="kn">import</span> <span class="n">construct_mesh_from_coeffs</span>
 
@@ -231,7 +231,30 @@
     <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">vtkPolyData</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Constructs mesh given PCA transformation points.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Constructs mesh given PCA transformation points.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pca</span>
+<span class="sd">        Fit PCA object.</span>
+<span class="sd">    points</span>
+<span class="sd">        Select point in PC space.</span>
+<span class="sd">    feature_names</span>
+<span class="sd">        Spherical harmonics coefficient names.</span>
+<span class="sd">    order</span>
+<span class="sd">        Order of the spherical harmonics coefficient parametrization.</span>
+<span class="sd">    prefix</span>
+<span class="sd">        Prefix string for all coefficient columns.</span>
+<span class="sd">    suffix</span>
+<span class="sd">        Suffix string for all coefficient columns.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        Mesh object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">coeffs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">construct_mesh_from_coeffs</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">suffix</span><span class="p">)</span></div>
 </pre></div>

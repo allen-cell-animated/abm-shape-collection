@@ -225,6 +225,24 @@
     <span class="n">reference</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">scale</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts list of voxels in binary image array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    voxels</span>
+<span class="sd">        List of (x, y, z) voxels.</span>
+<span class="sd">    reference</span>
+<span class="sd">        List of (x, y, z) reference voxels used to define center and image size.</span>
+<span class="sd">    scale</span>
+<span class="sd">        Scaling factor for image array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        Binary image array.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># Set reference if not specified.</span>
     <span class="k">if</span> <span class="n">reference</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">reference</span> <span class="o">=</span> <span class="n">voxels</span>
@@ -244,8 +262,7 @@
     <span class="n">array_offset</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">mins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">mins</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mins</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">voxels_centered</span>
     <span class="p">]</span>
-    <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">array_offset</span><span class="p">)</span>
-    <span class="n">array</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">array_offset</span><span class="p">))]</span> <span class="o">=</span> <span class="n">vals</span>
+    <span class="n">array</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">array_offset</span><span class="p">))]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">array_offset</span><span class="p">)</span>
 
     <span class="c1"># Scale the array.</span>
     <span class="k">if</span> <span class="n">scale</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>

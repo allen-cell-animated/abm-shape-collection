@@ -220,6 +220,24 @@
 
 
 <div class="viewcode-block" id="fit_pca_model"><a class="viewcode-back" href="../../_summary/abm_shape_collection.fit_pca_model.html#abm_shape_collection.fit_pca_model.fit_pca_model">[docs]</a><span class="k">def</span> <span class="nf">fit_pca_model</span><span class="p">(</span><span class="n">features</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">components</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ordering</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PCA</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fit PCA model to given data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    features</span>
+<span class="sd">        Feature data (shape = num_samples x num_feature).</span>
+<span class="sd">    components</span>
+<span class="sd">        Number of components to keep.</span>
+<span class="sd">    ordering</span>
+<span class="sd">        Data used to reorient components.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        Fit PCA object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># Fit data.</span>
     <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">components</span><span class="p">)</span>
     <span class="n">pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>

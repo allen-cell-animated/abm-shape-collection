@@ -223,6 +223,24 @@
     <span class="n">projection</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">box</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract contours from list of voxels in specified projection direction.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    all_voxels</span>
+<span class="sd">        List of all voxels in region.</span>
+<span class="sd">    projection</span>
+<span class="sd">        Projection direction.</span>
+<span class="sd">    box</span>
+<span class="sd">        Bounding box.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        List of list of contour points.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">voxels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">box</span>
 
@@ -249,6 +267,20 @@
 
 
 <div class="viewcode-block" id="get_array_edges"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_voxel_contours.html#abm_shape_collection.extract_voxel_contours.get_array_edges">[docs]</a><span class="k">def</span> <span class="nf">get_array_edges</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get edges of region in binary array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    array</span>
+<span class="sd">        Binary array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        List of unconnected region edges.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 
@@ -269,6 +301,20 @@
 
 
 <div class="viewcode-block" id="connect_array_edges"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_voxel_contours.html#abm_shape_collection.extract_voxel_contours.connect_array_edges">[docs]</a><span class="k">def</span> <span class="nf">connect_array_edges</span><span class="p">(</span><span class="n">edges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Group unconnected region edges into connected contour edges.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    edges</span>
+<span class="sd">        List of unconnected region edges.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        List of connected contour edges.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">contours</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">while</span> <span class="n">edges</span><span class="p">:</span>
@@ -292,12 +338,26 @@
                 <span class="n">contour</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">backward</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[</span><span class="mi">1</span><span class="p">:])</span>
 
             <span class="k">if</span> <span class="n">contour_length</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">contour</span><span class="p">):</span>
-                <span class="n">contours</span><span class="o">.</span><span class="n">append</span><span class="p">([(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">contour</span><span class="p">])</span>
+                <span class="n">contours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">contour</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="merge_contour_edges"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_voxel_contours.html#abm_shape_collection.extract_voxel_contours.merge_contour_edges">[docs]</a><span class="k">def</span> <span class="nf">merge_contour_edges</span><span class="p">(</span><span class="n">contour</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merge connected contour edges.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    contour</span>
+<span class="sd">       List of connected contour edges.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        List of connected contours.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">merged</span> <span class="o">=</span> <span class="n">contour</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">contour</span><span class="p">,</span> <span class="n">contour</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">contour</span><span class="p">[</span><span class="mi">2</span><span class="p">:]):</span>

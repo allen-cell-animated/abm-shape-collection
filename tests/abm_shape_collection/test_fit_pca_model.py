@@ -11,8 +11,9 @@ class TestFitPCAModel(unittest.TestCase):
         num_features = 5
         num_samples = 100
 
-        features = np.random.random_sample((num_samples, num_features))
-        ordering = np.random.random_sample((num_samples,))
+        rng = np.random.default_rng()
+        features = rng.random((num_samples, num_features))
+        ordering = rng.random((num_samples,))
 
         # Ensure that at least one of the features needs to be reoriented.
         features[:, 0] = ordering * -10

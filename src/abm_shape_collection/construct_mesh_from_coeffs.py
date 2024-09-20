@@ -16,7 +16,7 @@ def construct_mesh_from_coeffs(
     scale: float = 1.0,
 ) -> vtkPolyData:
     """
-    Constructs a mesh from spherical harmonic coefficients.
+    Construct a mesh from spherical harmonic coefficients.
 
     Parameters
     ----------

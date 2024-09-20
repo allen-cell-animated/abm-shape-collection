@@ -16,26 +16,28 @@ class TestCalculateShapeStatistics(unittest.TestCase):
         data_length = 6
         ref_length = 10
 
+        rng = np.random.default_rng()
+
         data = pd.DataFrame(
             {
-                f"{label}_a": np.random.random_sample((data_length,)),
-                f"{label}_b": np.random.random_sample((data_length,)),
-                f"{label}_c": np.random.random_sample((data_length,)),
+                f"{label}_a": rng.random((data_length,)),
+                f"{label}_b": rng.random((data_length,)),
+                f"{label}_c": rng.random((data_length,)),
             }
         )
         ref_data = pd.DataFrame(
             {
-                f"{label}_a": np.random.random_sample((ref_length,)),
-                f"{label}_b": np.random.random_sample((ref_length,)),
-                f"{label}_c": np.random.random_sample((ref_length,)),
+                f"{label}_a": rng.random((ref_length,)),
+                f"{label}_b": rng.random((ref_length,)),
+                f"{label}_c": rng.random((ref_length,)),
             }
         )
 
-        pc1_data = np.random.random_sample((data_length,))
-        pc1_ref = np.random.random_sample((ref_length,))
+        pc1_data = rng.random((data_length,))
+        pc1_ref = rng.random((ref_length,))
 
-        pc2_data = np.random.random_sample((data_length,))
-        pc2_ref = np.random.random_sample((ref_length,))
+        pc2_data = rng.random((data_length,))
+        pc2_ref = rng.random((ref_length,))
 
         mock_transform = {
             data_length: np.array([pc1_data, pc2_data]).T,

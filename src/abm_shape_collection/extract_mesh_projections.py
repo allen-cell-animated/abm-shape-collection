@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 import tempfile
-from typing import Optional, Union
+from enum import Enum
 
 import numpy as np
 import trimesh
@@ -13,11 +15,20 @@ PROJECTIONS: list[tuple[str, tuple[int, int, int], int]] = [
 """Mesh projection names, normals, and extent axes."""
 
 
+class ProjectionType(Enum):
+    """Projection slice types."""
+
+    SLICE = 1
+    """Slice projection type."""
+
+    EXTENT = 2
+    """Extent projection type."""
+
+
 def extract_mesh_projections(
-    mesh: Union[vtkPolyData, trimesh.Trimesh],
-    slices: bool = True,
-    extents: bool = True,
-    offset: Optional[tuple[float, float, float]] = None,
+    mesh: vtkPolyData | trimesh.Trimesh,
+    projection_types: list[ProjectionType],
+    offset: tuple[float, float, float] | None = None,
 ) -> dict:
     """
     Extract slices and/or extents from mesh.
@@ -31,10 +42,8 @@ def extract_mesh_projections(
     ----------
     mesh
         Mesh object.
-    slices
-        True to extract slices, False otherwise.
-    extents : bool, optional
-        True to extract extents, False otherwise.
+    projection_types
+        Mesh projection types.
     offset
         Mesh translation applied before extracting slices and/or meshes.
 
@@ -50,15 +59,13 @@ def extract_mesh_projections(
     if offset is not None:
         mesh.apply_translation(offset)
 
-    projections: dict[str, Union[list[list[list[float]]], dict[float, list[list[list[float]]]]]] = (
-        {}
-    )
+    projections: dict[str, list[list[list[float]]] | dict[float, list[list[list[float]]]]] = {}
 
-    if slices:
+    if ProjectionType.SLICE in projection_types:
         for projection, normal, _ in PROJECTIONS:
             projections[f"{projection}_slice"] = get_mesh_slice(mesh, normal)
 
-    if extents:
+    if ProjectionType.EXTENT in projection_types:
         for projection, normal, index in PROJECTIONS:
             projections[f"{projection}_extent"] = get_mesh_extent(mesh, normal, index)
 
@@ -67,7 +74,7 @@ def extract_mesh_projections(
 
 def convert_vtk_to_trimesh(mesh: vtkPolyData) -> trimesh.Trimesh:
     """
-    Converts VTK polydata to trimesh object.
+    Convert VTK polydata to trimesh object.
 
     Parameters
     ----------
@@ -85,9 +92,7 @@ def convert_vtk_to_trimesh(mesh: vtkPolyData) -> trimesh.Trimesh:
         writer.SetFileTypeToASCII()
         writer.SetFileName(f"{temp.name}.ply")
         _ = writer.Write()
-        mesh = trimesh.load(f"{temp.name}.ply")
-
-    return mesh
+        return trimesh.load(f"{temp.name}.ply")
 
 
 def get_mesh_slice(mesh: trimesh.Trimesh, normal: tuple[int, int, int]) -> list[list[list[float]]]:
@@ -108,8 +113,7 @@ def get_mesh_slice(mesh: trimesh.Trimesh, normal: tuple[int, int, int]) -> list[
     """
 
     mesh_slice = mesh.section_multiplane((0, 0, 0), normal, [0])
-    points = [[list(point) for point in entity] for entity in mesh_slice[0].discrete]
-    return points
+    return [[list(point) for point in entity] for entity in mesh_slice[0].discrete]
 
 
 def get_mesh_extent(
@@ -136,9 +140,8 @@ def get_mesh_extent(
     layers = int(mesh.extents[index] + 2)
     plane_indices = list(np.arange(-layers, layers + 1, 0.5))
     mesh_extents = mesh.section_multiplane((0, 0, 0), normal, plane_indices)
-    points = {
+    return {
         index: [[list(point) for point in entity] for entity in mesh_extent.discrete]
         for mesh_extent, index in zip(mesh_extents, plane_indices)
         if mesh_extent is not None
     }
-    return points

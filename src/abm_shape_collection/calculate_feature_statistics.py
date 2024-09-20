@@ -29,10 +29,10 @@ def calculate_feature_statistics(
 
     for feature in features:
         # Extract values for specific component.
-        ref_values = ref_data[feature].values
-        values = data[feature].values
+        ref_values = ref_data[feature].to_numpy()
+        values = data[feature].to_numpy()
 
-        # Calculate Kolmogorov–Smirnov statistic.
+        # Calculate Kolmogorov-Smirnov statistic.
         ks_result = ks_2samp(values, ref_values, mode="asymp")
 
         statistics.append(

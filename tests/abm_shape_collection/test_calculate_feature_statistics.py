@@ -12,15 +12,17 @@ class TestCalculateFeatureStatistics(unittest.TestCase):
         data_length = 5
         ref_length = 10
 
+        rng = np.random.default_rng()
+
         feature_a = "feature_a"
-        feature_a_data = np.random.random_sample((data_length,))
-        feature_a_ref = np.random.random_sample((ref_length,))
+        feature_a_data = rng.random((data_length,))
+        feature_a_ref = rng.random((ref_length,))
         feature_a_len = len(feature_a_data)
         feature_a_ks = ks_2samp(feature_a_data, feature_a_ref, mode="asymp")
 
         feature_b = "feature_b"
-        feature_b_data = np.random.random_sample((data_length,))
-        feature_b_ref = np.random.random_sample((ref_length,))
+        feature_b_data = rng.random((data_length,))
+        feature_b_ref = rng.random((ref_length,))
         feature_b_len = len(feature_b_data)
         feature_b_ks = ks_2samp(feature_b_data, feature_b_ref, mode="asymp")
 

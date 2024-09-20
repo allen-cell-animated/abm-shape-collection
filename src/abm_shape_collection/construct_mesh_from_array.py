@@ -6,7 +6,7 @@ from vtk.util import numpy_support  # pylint: disable=no-name-in-module, import-
 
 def construct_mesh_from_array(array: np.ndarray, reference: np.ndarray) -> vtkPolyData:
     """
-    Constructs a mesh from binary image array.
+    Construct a mesh from binary image array.
 
     Parameters
     ----------

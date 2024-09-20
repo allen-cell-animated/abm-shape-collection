@@ -67,7 +67,7 @@ def extract_shape_modes(
         offsets = calculate_region_offsets(data, region)
 
         for component in range(components):
-            point_vector = np.zeros((components))
+            point_vector = np.zeros(components)
 
             for point in map_points:
                 point_bin = np.digitize(point, bin_edges)
@@ -122,10 +122,10 @@ def calculate_region_offsets(data: pd.DataFrame, region: str) -> dict:
     if region == "DEFAULT":
         return {}
 
-    x_deltas = data[f"CENTER_X.{region}"].values - data["CENTER_X"].values
-    y_deltas = data[f"CENTER_Y.{region}"].values - data["CENTER_Y"].values
-    z_deltas = data[f"CENTER_Z.{region}"].values - data["CENTER_Z"].values
-    angles = data["angle"].values * np.pi / 180.0
+    x_deltas = data[f"CENTER_X.{region}"].to_numpy() - data["CENTER_X"].to_numpy()
+    y_deltas = data[f"CENTER_Y.{region}"].to_numpy() - data["CENTER_Y"].to_numpy()
+    z_deltas = data[f"CENTER_Z.{region}"].to_numpy() - data["CENTER_Z"].to_numpy()
+    angles = data["angle"].to_numpy() * np.pi / 180.0
 
     sin_angles = np.sin(angles)
     cos_angles = np.cos(angles)

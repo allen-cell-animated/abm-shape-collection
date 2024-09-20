@@ -15,7 +15,7 @@ def construct_mesh_from_points(
     suffix: str = "",
 ) -> vtkPolyData:
     """
-    Constructs mesh given PCA transformation points.
+    Construct mesh given PCA transformation points.
 
     Parameters
     ----------

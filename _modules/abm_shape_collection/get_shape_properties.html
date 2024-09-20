@@ -242,9 +242,7 @@
     <span class="n">flattened_array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="n">properties_dict</span> <span class="o">=</span> <span class="n">regionprops_table</span><span class="p">(</span><span class="n">flattened_array</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">properties</span><span class="p">)</span>
-    <span class="n">props</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">properties_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
-    <span class="k">return</span> <span class="n">props</span></div>
+    <span class="k">return</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">properties_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
 </pre></div>
         </article>
       </div>

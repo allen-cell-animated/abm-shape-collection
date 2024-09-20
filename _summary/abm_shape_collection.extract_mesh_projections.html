@@ -224,9 +224,27 @@
 <dd><p>Mesh projection names, normals, and extent axes.</p>
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="abm_shape_collection.extract_mesh_projections.ProjectionType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ProjectionType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abm_shape_collection/extract_mesh_projections.html#ProjectionType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_mesh_projections.ProjectionType" title="Permalink to this definition">#</a></dt>
+<dd><p>Projection slice types.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abm_shape_collection.extract_mesh_projections.ProjectionType.SLICE">
+<span class="sig-name descname"><span class="pre">SLICE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#abm_shape_collection.extract_mesh_projections.ProjectionType.SLICE" title="Permalink to this definition">#</a></dt>
+<dd><p>Slice projection type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abm_shape_collection.extract_mesh_projections.ProjectionType.EXTENT">
+<span class="sig-name descname"><span class="pre">EXTENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#abm_shape_collection.extract_mesh_projections.ProjectionType.EXTENT" title="Permalink to this definition">#</a></dt>
+<dd><p>Extent projection type.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="abm_shape_collection.extract_mesh_projections.extract_mesh_projections">
-<span class="sig-name descname"><span class="pre">extract_mesh_projections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">vtkPolyData</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Trimesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/abm_shape_collection/extract_mesh_projections.html#extract_mesh_projections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_mesh_projections.extract_mesh_projections" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">extract_mesh_projections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">vtkPolyData</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">trimesh.Trimesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projection_types</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.ProjectionType" title="abm_shape_collection.extract_mesh_projections.ProjectionType"><span class="pre">ProjectionType</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/abm_shape_collection/extract_mesh_projections.html#extract_mesh_projections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_mesh_projections.extract_mesh_projections" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract slices and/or extents from mesh.</p>
 <p>Slice projections are taken as the cross section of the mesh with planes in
 the x, y, and z directions with origin at (0,0,0). Extent projections are
@@ -236,8 +254,7 @@ at increments of 0.5.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mesh</strong> – Mesh object.</p></li>
-<li><p><strong>slices</strong> – True to extract slices, False otherwise.</p></li>
-<li><p><strong>extents</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to extract extents, False otherwise.</p></li>
+<li><p><strong>projection_types</strong> – Mesh projection types.</p></li>
 <li><p><strong>offset</strong> – Mesh translation applied before extracting slices and/or meshes.</p></li>
 </ul>
 </dd>
@@ -250,7 +267,7 @@ at increments of 0.5.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="abm_shape_collection.extract_mesh_projections.convert_vtk_to_trimesh">
 <span class="sig-name descname"><span class="pre">convert_vtk_to_trimesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">vtkPolyData</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Trimesh</span></span></span><a class="reference internal" href="../_modules/abm_shape_collection/extract_mesh_projections.html#convert_vtk_to_trimesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abm_shape_collection.extract_mesh_projections.convert_vtk_to_trimesh" title="Permalink to this definition">#</a></dt>
-<dd><p>Converts VTK polydata to trimesh object.</p>
+<dd><p>Convert VTK polydata to trimesh object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mesh</strong> – VTK mesh object.</p>
@@ -355,6 +372,11 @@ at increments of 0.5.</p>
             <ul>
 <li><a class="reference internal" href="#">extract_mesh_projections</a><ul>
 <li><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.PROJECTIONS"><code class="docutils literal notranslate"><span class="pre">PROJECTIONS</span></code></a></li>
+<li><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.ProjectionType"><code class="docutils literal notranslate"><span class="pre">ProjectionType</span></code></a><ul>
+<li><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.ProjectionType.SLICE"><code class="docutils literal notranslate"><span class="pre">ProjectionType.SLICE</span></code></a></li>
+<li><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.ProjectionType.EXTENT"><code class="docutils literal notranslate"><span class="pre">ProjectionType.EXTENT</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.extract_mesh_projections"><code class="docutils literal notranslate"><span class="pre">extract_mesh_projections()</span></code></a></li>
 <li><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.convert_vtk_to_trimesh"><code class="docutils literal notranslate"><span class="pre">convert_vtk_to_trimesh()</span></code></a></li>
 <li><a class="reference internal" href="#abm_shape_collection.extract_mesh_projections.get_mesh_slice"><code class="docutils literal notranslate"><span class="pre">get_mesh_slice()</span></code></a></li>

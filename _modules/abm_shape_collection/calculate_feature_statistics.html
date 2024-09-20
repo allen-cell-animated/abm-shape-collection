@@ -246,10 +246,10 @@
 
     <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
         <span class="c1"># Extract values for specific component.</span>
-        <span class="n">ref_values</span> <span class="o">=</span> <span class="n">ref_data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">ref_values</span> <span class="o">=</span> <span class="n">ref_data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 
-        <span class="c1"># Calculate Kolmogorov–Smirnov statistic.</span>
+        <span class="c1"># Calculate Kolmogorov-Smirnov statistic.</span>
         <span class="n">ks_result</span> <span class="o">=</span> <span class="n">ks_2samp</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ref_values</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;asymp&quot;</span><span class="p">)</span>
 
         <span class="n">statistics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>

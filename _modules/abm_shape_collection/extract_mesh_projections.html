@@ -215,8 +215,10 @@
         </div>
         <article role="main">
           <h1>Source code for abm_shape_collection.extract_mesh_projections</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">tempfile</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">trimesh</span>
@@ -230,11 +232,20 @@
 <span class="sd">&quot;&quot;&quot;Mesh projection names, normals, and extent axes.&quot;&quot;&quot;</span>
 
 
+<div class="viewcode-block" id="ProjectionType"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_mesh_projections.html#abm_shape_collection.extract_mesh_projections.ProjectionType">[docs]</a><span class="k">class</span> <span class="nc">ProjectionType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Projection slice types.&quot;&quot;&quot;</span>
+
+    <span class="n">SLICE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Slice projection type.&quot;&quot;&quot;</span>
+
+    <span class="n">EXTENT</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extent projection type.&quot;&quot;&quot;</span></div>
+
+
 <div class="viewcode-block" id="extract_mesh_projections"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_mesh_projections.html#abm_shape_collection.extract_mesh_projections.extract_mesh_projections">[docs]</a><span class="k">def</span> <span class="nf">extract_mesh_projections</span><span class="p">(</span>
-    <span class="n">mesh</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">vtkPolyData</span><span class="p">,</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">],</span>
-    <span class="n">slices</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">extents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">offset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">mesh</span><span class="p">:</span> <span class="n">vtkPolyData</span> <span class="o">|</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">,</span>
+    <span class="n">projection_types</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ProjectionType</span><span class="p">],</span>
+    <span class="n">offset</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extract slices and/or extents from mesh.</span>
@@ -248,10 +259,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    mesh</span>
 <span class="sd">        Mesh object.</span>
-<span class="sd">    slices</span>
-<span class="sd">        True to extract slices, False otherwise.</span>
-<span class="sd">    extents : bool, optional</span>
-<span class="sd">        True to extract extents, False otherwise.</span>
+<span class="sd">    projection_types</span>
+<span class="sd">        Mesh projection types.</span>
 <span class="sd">    offset</span>
 <span class="sd">        Mesh translation applied before extracting slices and/or meshes.</span>
 
@@ -267,15 +276,13 @@
     <span class="k">if</span> <span class="n">offset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">mesh</span><span class="o">.</span><span class="n">apply_translation</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
 
-    <span class="n">projections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]]]]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">{}</span>
-    <span class="p">)</span>
+    <span class="n">projections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]]]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="k">if</span> <span class="n">slices</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">ProjectionType</span><span class="o">.</span><span class="n">SLICE</span> <span class="ow">in</span> <span class="n">projection_types</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">projection</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">PROJECTIONS</span><span class="p">:</span>
             <span class="n">projections</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">projection</span><span class="si">}</span><span class="s2">_slice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_mesh_slice</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">normal</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">extents</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">ProjectionType</span><span class="o">.</span><span class="n">EXTENT</span> <span class="ow">in</span> <span class="n">projection_types</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">projection</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">PROJECTIONS</span><span class="p">:</span>
             <span class="n">projections</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">projection</span><span class="si">}</span><span class="s2">_extent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_mesh_extent</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
 
@@ -284,7 +291,7 @@
 
 <div class="viewcode-block" id="convert_vtk_to_trimesh"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_mesh_projections.html#abm_shape_collection.extract_mesh_projections.convert_vtk_to_trimesh">[docs]</a><span class="k">def</span> <span class="nf">convert_vtk_to_trimesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">vtkPolyData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Converts VTK polydata to trimesh object.</span>
+<span class="sd">    Convert VTK polydata to trimesh object.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -302,9 +309,7 @@
         <span class="n">writer</span><span class="o">.</span><span class="n">SetFileTypeToASCII</span><span class="p">()</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">SetFileName</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">temp</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.ply&quot;</span><span class="p">)</span>
         <span class="n">_</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">Write</span><span class="p">()</span>
-        <span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">temp</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.ply&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">mesh</span></div>
+        <span class="k">return</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">temp</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.ply&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_mesh_slice"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_mesh_projections.html#abm_shape_collection.extract_mesh_projections.get_mesh_slice">[docs]</a><span class="k">def</span> <span class="nf">get_mesh_slice</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">,</span> <span class="n">normal</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]:</span>
@@ -325,8 +330,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">mesh_slice</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">section_multiplane</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">normal</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">list</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">entity</span><span class="p">]</span> <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">mesh_slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">discrete</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">points</span></div>
+    <span class="k">return</span> <span class="p">[[</span><span class="nb">list</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">entity</span><span class="p">]</span> <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">mesh_slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">discrete</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="get_mesh_extent"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_mesh_projections.html#abm_shape_collection.extract_mesh_projections.get_mesh_extent">[docs]</a><span class="k">def</span> <span class="nf">get_mesh_extent</span><span class="p">(</span>
@@ -353,12 +357,11 @@
     <span class="n">layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">extents</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">plane_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">layers</span><span class="p">,</span> <span class="n">layers</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
     <span class="n">mesh_extents</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">section_multiplane</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">normal</span><span class="p">,</span> <span class="n">plane_indices</span><span class="p">)</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
         <span class="n">index</span><span class="p">:</span> <span class="p">[[</span><span class="nb">list</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">entity</span><span class="p">]</span> <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">mesh_extent</span><span class="o">.</span><span class="n">discrete</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">mesh_extent</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">mesh_extents</span><span class="p">,</span> <span class="n">plane_indices</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">mesh_extent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">points</span></div>
+    <span class="p">}</span></div>
 </pre></div>
         </article>
       </div>

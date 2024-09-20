@@ -40,7 +40,7 @@ def extract_voxel_contours(
         x_bounds = width
         y_bounds = height
 
-    array = np.full((x_bounds, y_bounds), False)
+    array = np.full((x_bounds, y_bounds), fill_value=False)
     array[tuple(np.transpose(list(voxels)))] = True
 
     edges = get_array_edges(array)

@@ -1,4 +1,4 @@
-"""Tasks for analyzing cell shapes including spherical harmonics and shape modes."""
+"""Collection of tasks for analyzing cell shapes."""
 
 from prefect import task
 

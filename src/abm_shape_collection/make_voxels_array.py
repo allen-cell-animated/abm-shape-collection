@@ -1,15 +1,15 @@
-from typing import Optional
+from __future__ import annotations
 
 import numpy as np
 
 
 def make_voxels_array(
     voxels: list[tuple[int, int, int]],
-    reference: Optional[list[tuple[int, int, int]]] = None,
+    reference: list[tuple[int, int, int]] | None = None,
     scale: int = 1,
 ) -> np.ndarray:
     """
-    Converts list of voxels in binary image array.
+    Convert list of voxels to a binary image array.
 
     Parameters
     ----------

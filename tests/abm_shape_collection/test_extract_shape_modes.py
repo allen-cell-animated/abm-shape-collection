@@ -13,6 +13,7 @@ from abm_shape_collection.extract_shape_modes import calculate_region_offsets, e
 
 class TestExtractShapeModes(unittest.TestCase):
     def setUp(self):
+        self.rng = np.random.default_rng()
         self.mocks = SimpleNamespace(
             construct=mock.MagicMock(spec_set=abm_shape_collection.construct_mesh_from_points.fn),
             extract=mock.MagicMock(spec_set=abm_shape_collection.extract_mesh_projections.fn),
@@ -33,7 +34,7 @@ class TestExtractShapeModes(unittest.TestCase):
         positions = [f"CENTER_{axis}{suffix}" for axis in ["X", "Y", "Z"] for suffix in suffixes]
         columns = coeffs + positions + ["angle"]
 
-        data = pd.DataFrame(np.random.random_sample((100, len(columns))), columns=columns)
+        data = pd.DataFrame(self.rng.random((100, len(columns))), columns=columns)
 
         components = 3
         pca = PCA(n_components=components)
@@ -48,8 +49,8 @@ class TestExtractShapeModes(unittest.TestCase):
 
         mesh = "mesh"
         projection = "projection"
-        self.mocks.construct.side_effect = lambda *args, **kwargs: mesh
-        self.mocks.extract.side_effect = lambda *args, **kwargs: f"{args[0]}{projection}"
+        self.mocks.construct.return_value = mesh
+        self.mocks.extract.side_effect = lambda *args, **_: f"{args[0]}{projection}"
 
         shape_modes = extract_shape_modes(
             pca,
@@ -84,13 +85,13 @@ class TestExtractShapeModes(unittest.TestCase):
         region = "REGION"
         angles = [0, 90, 180]
 
-        center_x = np.random.random_sample((3,))
-        center_y = np.random.random_sample((3,))
-        center_z = np.random.random_sample((3,))
+        center_x = self.rng.random((3,))
+        center_y = self.rng.random((3,))
+        center_z = self.rng.random((3,))
 
-        delta_x = np.random.random_sample((3,))
-        delta_y = np.random.random_sample((3,))
-        delta_z = np.random.random_sample((3,))
+        delta_x = self.rng.random((3,))
+        delta_y = self.rng.random((3,))
+        delta_z = self.rng.random((3,))
 
         data = pd.DataFrame(
             {

@@ -11,8 +11,7 @@ def calculate_shape_statistics(
     label: str = "shcoeffs",
 ) -> pd.DataFrame:
     """
-    Perform two-sample Kolmogorov-Smirnov test for goodness of fit on shape
-    components.
+    Perform two-sample Kolmogorov-Smirnov test for goodness of fit on shapes.
 
     Parameters
     ----------
@@ -45,7 +44,7 @@ def calculate_shape_statistics(
         ref_values = ref_transform[:, component]
         values = transform[:, component]
 
-        # Calculate Kolmogorov–Smirnov statistic.
+        # Calculate Kolmogorov-Smirnov statistic.
         ks_result = ks_2samp(values, ref_values, mode="asymp")
 
         statistics.append(

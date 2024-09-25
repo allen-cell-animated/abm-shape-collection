@@ -14,7 +14,7 @@ from abm_shape_collection.extract_mesh_projections import (
 
 
 class TestExtractMeshProjections(unittest.TestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         vertices = [
             (-1, -1, 0),
             (1, -1, 0),
@@ -115,6 +115,14 @@ class TestExtractMeshProjections(unittest.TestCase):
                 0.5: [side_half_diamond],
             },
         }
+
+    def test_extract_mesh_projections_all_types_no_translation(self):
+        projections = extract_mesh_projections(self.vtk_mesh)
+        for proj, _, _ in PROJECTIONS:
+            self.assertCountEqual(self.slices[proj], projections[f"{proj}_slice"])
+            self.assertDictEqual(self.extents[proj], projections[f"{proj}_extent"])
+            self.assertFalse(f"{proj}_extent" in proj)
+            self.assertFalse(f"{proj}_slice" in proj)
 
     def test_extract_mesh_projections_slices_no_translation(self):
         projections = extract_mesh_projections(self.vtk_mesh, [ProjectionType.SLICE], offset=None)

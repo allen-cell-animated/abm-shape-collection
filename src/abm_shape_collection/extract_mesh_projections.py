@@ -27,7 +27,7 @@ class ProjectionType(Enum):
 
 def extract_mesh_projections(
     mesh: vtkPolyData | trimesh.Trimesh,
-    projection_types: list[ProjectionType],
+    projection_types: list[ProjectionType] | None = None,
     offset: tuple[float, float, float] | None = None,
 ) -> dict:
     """
@@ -55,6 +55,9 @@ def extract_mesh_projections(
 
     if isinstance(mesh, vtkPolyData):
         mesh = convert_vtk_to_trimesh(mesh)
+
+    if projection_types is None:
+        projection_types = [ProjectionType.SLICE, ProjectionType.EXTENT]
 
     if offset is not None:
         mesh.apply_translation(offset)

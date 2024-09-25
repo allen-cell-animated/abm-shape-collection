@@ -6,7 +6,7 @@ from abm_shape_collection.get_shape_coefficients import get_shape_coefficients
 
 
 class TestGetShapeCoefficients(unittest.TestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         self.order = 2
 
         self.coeff_names = [

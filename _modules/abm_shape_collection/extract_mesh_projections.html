@@ -244,7 +244,7 @@
 
 <div class="viewcode-block" id="extract_mesh_projections"><a class="viewcode-back" href="../../_summary/abm_shape_collection.extract_mesh_projections.html#abm_shape_collection.extract_mesh_projections.extract_mesh_projections">[docs]</a><span class="k">def</span> <span class="nf">extract_mesh_projections</span><span class="p">(</span>
     <span class="n">mesh</span><span class="p">:</span> <span class="n">vtkPolyData</span> <span class="o">|</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">,</span>
-    <span class="n">projection_types</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ProjectionType</span><span class="p">],</span>
+    <span class="n">projection_types</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ProjectionType</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">offset</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -272,6 +272,9 @@
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">vtkPolyData</span><span class="p">):</span>
         <span class="n">mesh</span> <span class="o">=</span> <span class="n">convert_vtk_to_trimesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">projection_types</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">projection_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">ProjectionType</span><span class="o">.</span><span class="n">SLICE</span><span class="p">,</span> <span class="n">ProjectionType</span><span class="o">.</span><span class="n">EXTENT</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">offset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">mesh</span><span class="o">.</span><span class="n">apply_translation</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>

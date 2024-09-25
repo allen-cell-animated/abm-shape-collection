@@ -7,7 +7,7 @@ from abm_shape_collection.extract_mesh_wireframe import extract_mesh_wireframe
 
 
 class TestExtractMeshProjections(unittest.TestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         vertices = [
             (-1, -1, 0),
             (1, -1, 0),

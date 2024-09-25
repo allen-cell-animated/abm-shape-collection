@@ -1,3 +1,22 @@
+# [v0.10.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.10.0) - 2024-09-25
+
+> Compare with [v0.9.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.9.0...v0.10.0)
+
+### Tests
+
+- Add unit tests for shape collection tasks by [@jessicasyu](https://github.com/jessicasyu) in [#50](https://github.com/allen-cell-animated/abm-shape-collection/pull/50)
+
+### Documentation
+
+- Update type hinting and task defaults by [@jessicasyu](https://github.com/jessicasyu) in [#52](https://github.com/allen-cell-animated/abm-shape-collection/pull/52)
+
+### Admin
+
+- Fix release workflow by [@jessicasyu](https://github.com/jessicasyu) in [#47](https://github.com/allen-cell-animated/abm-shape-collection/pull/47)
+- Update workflow action versions and badges by [@jessicasyu](https://github.com/jessicasyu) in [#48](https://github.com/allen-cell-animated/abm-shape-collection/pull/48)
+- Bump dependency versions by [@jessicasyu](https://github.com/jessicasyu) in [#49](https://github.com/allen-cell-animated/abm-shape-collection/pull/49)
+- Add Python 3.11 to workflows and apply ruff linting by [@jessicasyu](https://github.com/jessicasyu) in [#51](https://github.com/allen-cell-animated/abm-shape-collection/pull/51)
+
 # [v0.9.0](https://github.com/allen-cell-animated/abm-shape-collection/releases/tag/v0.9.0) - 2024-02-23
 
 > Compare with [v0.8.0](https://github.com/allen-cell-animated/abm-shape-collection/compare/v0.8.0...v0.9.0)
